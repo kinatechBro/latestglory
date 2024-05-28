@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+input[type="text"] {
+  font-size: 20px;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+input[type="text"] {
+  outline: none;
+  border: none;
+}
+input[type="text"] {
+  outline: none;
+  border: none;
+}
+
+body {
+  background-image: url(./assets/bg.jpg);
+  object-fit: cover;
+  object-position: center;
+  background-repeat: no-repeat;
+  object-position: center;
+  background-attachment: fixed;
+  /* width: 100vh; */
+}
+/* @media (prefers-color-scheme: light) {
+} */
+
+.container .placeholder {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .container button:nth-child(n + 5) {
+    display: none;
+  }
+  .container .placeholder {
+    display: block;
+  }
+}
+/* @media (min-width: 600px) {
+  .container button:nth-child(n + 6) {
+    display: none;
+  }
+  .container .placeholder {
+    display: block;
+  }
+} */

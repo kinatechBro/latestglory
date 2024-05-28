@@ -1,0 +1,33 @@
+ <nav
+        className={`${navstyle.dispflex} ${navstyle.nav} bg-white m-[0_auto]`}
+      >
+        <div className={`${navstyle.dispflex} w-4/5 bg-red-500`}>
+          <div className={`${navstyle.dispflex} items-center gap-4`}>
+            <div className={`${navstyle.dispflex} text-4xl`}>
+              <IoIosKeypad />
+            </div>
+            <div className="flex gap-2">
+              <img src={microsoft} alt="" className="w-8 h-8 hidden" />
+              <h2 className=" text-2xl font-bold hidden">Microsoft Start</h2>
+            </div>
+          </div>
+          <div
+            className={`flex bg-[#333] p-2 rounded-full items-center  w-full  px-4`}
+          >
+            <div className={`text-3xl`}>
+              <IoSearchOutline />
+            </div>
+            <input
+              type="text"
+              placeholder="Search the web  "
+              className="bg-[#333] w-full px-4"
+            />
+            <img src={copilot} alt="ms_copilot" className={`w-8 h-8`} />
+          </div>
+          <div className={`${navstyle.third}`}>
+            <p className={`hidden`}>Abuja</p>
+            <MdNotificationsNone />
+            <IoSettingsOutline />
+          </div>
+        </div>
+      </nav>
