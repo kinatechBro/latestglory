@@ -5,6 +5,8 @@ import jordan from "../assets/jordan.jpg"
 import computer from "../assets/computer.jpg"
 import bridge from "../assets/bridge.jpg"
 
+import data from "../Data/Feeds"
+
 
 
 function Feed() {
@@ -14,7 +16,11 @@ function Feed() {
         <div className="w-auto bg-[#333] rounded-md h-80 sm:col-span-2">
           <img src={field} alt="field" className={`size-80 w-full rounded-md`} />
         </div>
-        <div className="w-auto bg-[#333] rounded-md h-80"></div>
+
+
+        <div className="w-auto bg-[#333] rounded-md h-80">
+          
+        </div>
         <div className="w-auto bg-[#333] rounded-md h-80">nth</div>
         <div className="w-auto bg-[#333] rounded-md h-80">nth</div>
         <div className="w-auto bg-[#333] rounded-md h-80">nth</div>
