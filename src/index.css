@@ -34,16 +34,8 @@ input[type="text"] {
 }
 
 body {
-  background-image: url(./assets/bg.jpg);
-  object-fit: cover;
-  object-position: center;
-  background-repeat: no-repeat;
-  object-position: center;
-  background-attachment: fixed;
-  /* width: 100vh; */
+ background: #4e4e4e;
 }
-/* @media (prefers-color-scheme: light) {
-} */
 
 .container .placeholder {
   display: none;
@@ -57,11 +49,3 @@ body {
     display: block;
   }
 }
-/* @media (min-width: 600px) {
-  .container button:nth-child(n + 6) {
-    display: none;
-  }
-  .container .placeholder {
-    display: block;
-  }
-} */
