@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../firebase";
+
+import userContext from "../Context/UserContext/UserContext";
 
 function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setUser, user } = useContext(userContext);
 
   console.log(email, password);
 
@@ -16,6 +19,7 @@ function Auth() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
+        setUser(email);
         const user = userCredential.user;
         console.log(user);
         // ...
@@ -29,7 +33,7 @@ function Auth() {
 
   return (
     <div>
-      <h2></h2>
+      <h2>{user}</h2>
       <div>
         <form action="">
           <input

@@ -1,4 +1,4 @@
-import Feed from "../Components/Feed"
+import Feed from "../Components/Feed";
 function Blog() {
   return (
     <>
