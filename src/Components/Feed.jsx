@@ -12,7 +12,7 @@ function Feed() {
     <>
       <Trending />
 
-      <div className=" 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid grid-cols-1 gap-2">
+      <div className=" 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid grid-cols-1 gap-8">
 
         {
           blogPosts.map((posts) => {
