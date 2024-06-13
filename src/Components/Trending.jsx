@@ -6,128 +6,44 @@ import { TbMessage2 } from "react-icons/tb";
 import { PiLinkBold } from "react-icons/pi";
 import { PiArrowFatUpBold } from "react-icons/pi";
 
-import { trend, images, heading, card,  itemNumber } from "../Styles/Trending";
+import { trend, heading, card, itemNumber, blogPosts, } from "../Styles/Trending";
 
 function Trending() {
 
   return (
     <div>
-      <OwlCarousel className={`owl-theme `} items={itemNumber} loop margin={10} navv>
-        <div className={`${card.height} ${card.bg} ${card.Padding} ${card.round}`}>
+      <OwlCarousel className={`owl-theme `} items={itemNumber} loop margin={30} nav>
+        {
+          blogPosts.map((posts) => {
+            return (
+              <>
+                <div className={`${card.height} ${card.bg} ${card.Padding} ${card.round}`}>
 
-          <div className={`${heading.style}`}>{heading.one}</div>
 
-          <div className={`${trend.flex} ${trend.tag}`}>
-            <p className={`${trend.tags}`}>#javascript</p>
-            <p className={`${trend.tags}`}>#react</p>
-            <p className={`${trend.tags}`}>+3 tags</p>
-          </div>
+                  <div className={`${heading.style}`}>{posts.text}</div>
 
-          <div className="date"><p>June {trend.day} • 16m read time</p></div>
+                  <div className={`${trend.flex} ${trend.tag}`}>
+                    <p className={`${trend.tags}`}>#javascript</p>
+                    <p className={`${trend.tags}`}>#react</p>
+                    <p className={`${trend.tags}`}>+3 tags</p>
+                  </div>
 
-          <div>
-            <img src={images.laptop} alt="laptop" className={`${trend.img}  h-40`} />
-          </div>
+                  <div className="date"><p>June {trend.day} • 16m read time</p></div>
 
-          <div className={`${trend.flex} ${trend.justifyBetween} ${trend.textLg} ${trend.oneRemPadding}`}>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><PiArrowFatUpBold />10</button>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><TbMessage2 />5</button>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><PiLinkBold /></button>
-          </div>
-        </div>
+                  <div>
+                    <img src={posts.img} alt="laptop" className={`${trend.img}  h-40`} />
+                  </div>
 
-        <div className={`${card.height} ${card.bg} ${card.Padding} ${card.round}`}>
-
-          <div className={`${heading.style}`}>{heading.two}</div>
-
-          <div className={`${trend.flex} ${trend.tag}`}>
-            <p className={`${trend.tags}`}>#javascript</p>
-            <p className={`${trend.tags}`}>#react</p>
-            <p className={`${trend.tags}`}>+3 tags</p>
-          </div>
-
-          <div className="date"><p>June {trend.day} • 16m read time</p></div>
-
-          <div>
-            <img src={images.bg} alt="laptop" className={`${trend.img}  h-40`} />
-          </div>
-
-          <div className={`${trend.flex} ${trend.justifyBetween} ${trend.textLg} ${trend.oneRemPadding}`}>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><PiArrowFatUpBold />15</button>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><TbMessage2 />5</button>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><PiLinkBold /></button>
-          </div>
-        </div>
-
-        <div className={`${card.height} ${card.bg} ${card.Padding} ${card.round}`}>
-
-          <div className={`${heading.style}`}>{heading.three}</div>
-
-          <div className={`${trend.flex} ${trend.tag}`}>
-            <p className={`${trend.tags}`}>#javascript</p>
-            <p className={`${trend.tags}`}>#react</p>
-            <p className={`${trend.tags}`}>+3 tags</p>
-          </div>
-
-          <div className="date"><p>June {trend.day} • 16m read time</p></div>
-
-          <div>
-            <img src={images.computer} alt="laptop" className={`${trend.img}  h-40`} />
-          </div>
-
-          <div className={`${trend.flex} ${trend.justifyBetween} ${trend.textLg} ${trend.oneRemPadding}`}>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><PiArrowFatUpBold />15</button>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><TbMessage2 />5</button>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><PiLinkBold /></button>
-          </div>
-        </div>
-
-        <div className={`${card.height} ${card.bg} ${card.Padding} ${card.round}`}>
-
-          <div className={`${heading.style}`}>{heading.one}</div>
-
-          <div className={`${trend.flex} ${trend.tag}`}>
-            <p className={`${trend.tags}`}>#javascript</p>
-            <p className={`${trend.tags}`}>#react</p>
-            <p className={`${trend.tags}`}>+3 tags</p>
-          </div>
-
-          <div className="date"><p>June {trend.day} • 16m read time</p></div>
-
-          <div>
-            <img src={images.house} alt="laptop" className={`${trend.img}  h-40`} />
-          </div>
-
-          <div className={`${trend.flex} ${trend.justifyBetween} ${trend.textLg} ${trend.oneRemPadding}`}>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><PiArrowFatUpBold />15</button>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><TbMessage2 />5</button>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><PiLinkBold /></button>
-          </div>
-        </div>
-
-        <div className={`${card.height} ${card.bg} ${card.Padding} ${card.round}`}>
-
-          <div className={`${heading.style}`}>{heading.one}</div>
-
-          <div className={`${trend.flex} ${trend.tag}`}>
-            <p className={`${trend.tags}`}>#javascript</p>
-            <p className={`${trend.tags}`}>#react</p>
-            <p className={`${trend.tags}`}>+3 tags</p>
-          </div>
-
-          <div className="date"><p>June {trend.day} • 16m read time</p></div>
-
-          <div>
-            <img src={images.laptop2} alt="laptop" className={`${trend.img}  h-40`} />
-          </div>
-
-          <div className={`${trend.flex} ${trend.justifyBetween} ${trend.textLg} ${trend.oneRemPadding}`}>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><PiArrowFatUpBold />15</button>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><TbMessage2 />5</button>
-            <button className={`${trend.flex} ${trend.itemsCenter}`}><PiLinkBold /></button>
-          </div>
-        </div>
-
+                  <div className={`${trend.flex} ${trend.justifyBetween} ${trend.textLg} ${trend.oneRemPadding}`}>
+                    <button className={`${trend.flex} ${trend.itemsCenter}`}><PiArrowFatUpBold />10</button>
+                    <button className={`${trend.flex} ${trend.itemsCenter}`}><TbMessage2 />5</button>
+                    <button className={`${trend.flex} ${trend.itemsCenter}`}><PiLinkBold /></button>
+                  </div>
+                </div>
+              </>
+            )
+          })
+        }
       </OwlCarousel>
 
     </div>

@@ -82,17 +82,32 @@ export const blogPosts = [
   },
   {
     id: 4,
-    text: "How To Create React Elements with JSX ",
+    text: "5 Free Machine Learning Courses from Top Universities ",
     img: pix_four,
   },
   {
     id: 5,
-    text: "How To Create React Elements with JSX ",
+    text: "Boost Productivity & Quality: Essential VS Code Extensions ",
     img: pix_five,
   },
   {
     id: 6,
-    text: "How To Create React Elements with JSX ",
+    text: "Best Icon Libraries for a Dev in 2024 ",
     img: pix_six,
+  },
+  {
+    id: 7,
+    text: "Best Icon Libraries for a Dev in 2024 ",
+    img: pix_one,
+  },
+  {
+    id: 8,
+    text: "Best Icon Libraries for a Dev in 2024 ",
+    img: pix_two,
+  },
+  {
+    id: 9,
+    text: "Best Icon Libraries for a Dev in 2024 ",
+    img: pix_three,
   },
 ];

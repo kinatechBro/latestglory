@@ -1,14 +1,10 @@
-import Auth from "./Auth/Auth";
-import AddNewPost from "./Pages/AddNewPost";
-import Home from "./Pages/Home";
+import userContext from "./Context/UserContext/UserContext";
+import { useContext } from "react";
 import NonUserRouter from "./users/NonUserRouter";
+import UserRouter from "./users/UserRouter";
+
 export default function App() {
-  return (
-    <div>
-      <Home />
-      <AddNewPost />
-      <Auth />
-      <NonUserRouter />
-    </div>
-  );
+  const { isLoggedIn, setIsLoggedIn } = useContext(userContext);
+
+  return <div>{isLoggedIn ? <UserRouter /> : <NonUserRouter />}</div>;
 }
