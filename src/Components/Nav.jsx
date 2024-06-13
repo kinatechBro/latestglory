@@ -2,15 +2,10 @@ import { IoIosKeypad } from "react-icons/io";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdNotificationsNone } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
-
-// import microsoft from "../assets/microsoft.png";
-// import copilot from "../assets/copilot.png";
-import { navstyle } from "../Styles/Nav";
-
 import { FaMicrosoft } from "react-icons/fa";
 import { SiMicrosoftedge } from "react-icons/si";
 
-
+import { navstyle } from "../Data/Data";
 
 function Nav() {
   return (
@@ -21,12 +16,8 @@ function Nav() {
             <div className={`${navstyle.text2rem}`}>
               <IoIosKeypad />
             </div>
-            {/* <img
-              src={microsoft}
-              alt=""
-              className={`${navstyle.microsoftImg}`}
-            /> */}
-            <FaMicrosoft/>
+
+            <FaMicrosoft />
             <p className={`${navstyle.microsoftStart} `}>Microsoft Start</p>
           </div>
 
@@ -38,7 +29,6 @@ function Nav() {
                 placeholder="Search the web  "
                 className={`${navstyle.searchInput}`}
               />
-              {/* <img src={copilot} alt="" className={`${navstyle.copilot}`} /> */}
               <SiMicrosoftedge />
             </div>
           </div>

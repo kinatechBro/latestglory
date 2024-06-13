@@ -3,7 +3,7 @@ function Blog() {
   return (
     <>
       <div
-        className={`text-white rounded-xl h-auto bg-[#242424] mx-16 md:mx-40 mt-16 md:mt-0 px-8 py-4`}
+        className={`text-white md:rounded-xl rounded-[10px_10px_0_0] h-auto bg-[#242424] mx-0 xl:mx-40 mt-16 md:mt-0 px-2 py-4 md:px-4`}
       >
         <div className={`flex items-center justify-between gap-8 pb-4 `}>
           <div

@@ -3,42 +3,42 @@ import Trending from "./Trending"
 import { TbMessage2 } from "react-icons/tb";
 import { PiLinkBold } from "react-icons/pi";
 import { PiArrowFatUpBold } from "react-icons/pi";
+import { HiOutlineExternalLink } from "react-icons/hi";
 
+import { Link } from "react-router-dom";
 
-import { heading, trend,blogPosts, card } from "../Styles/Trending";
+import { tags, blogPosts, Class, feed, } from "../Data/Data";
 
 function Feed() {
   return (
     <>
       <Trending />
-
-      <div className=" 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid grid-cols-1 gap-8">
-
+      <div className={`${feed.responsive}`}>
         {
           blogPosts.map((posts) => {
             return (
               <>
-                <div className={`${card.height} ${card.bg} ${card.Padding} ${card.round}`}>
-
-
-                  <div className={`${heading.style}`}>{posts.text}</div>
-
-                  <div className={`${trend.flex} ${trend.tag}`}>
-                    <p className={`${trend.tags}`}>#javascript</p>
-                    <p className={`${trend.tags}`}>#react</p>
-                    <p className={`${trend.tags}`}>+3 tags</p>
-                  </div>
-
-                  <div className="date"><p>June {trend.day} • 16m read time</p></div>
-
+                <div className={`${feed.card}`}>
+                  <Link to="singlepost">
+                    <div className={`${feed.readMore}`}>
+                      <button>read more</button>
+                      <HiOutlineExternalLink />
+                    </div>
+                  </Link>
+                  <div><p className={`${feed.heading}`}>{posts.text}</p></div>
                   <div>
-                    <img src={posts.img} alt="laptop" className={`${trend.img}  h-40`} />
+                    <button className={`${feed.tag}`}>{tags.tag1}</button>
+                    <button className={`${feed.tag}`}>{tags.tag2}</button>
+                    <button className={`${feed.tag}`}>{tags.tag3}</button>
                   </div>
+                  <div>June {feed.day} • 16m read time</div>
 
-                  <div className={`${trend.flex} ${trend.justifyBetween} ${trend.textLg} ${trend.oneRemPadding}`}>
-                    <button className={`${trend.flex} ${trend.itemsCenter}`}><PiArrowFatUpBold />10</button>
-                    <button className={`${trend.flex} ${trend.itemsCenter}`}><TbMessage2 />5</button>
-                    <button className={`${trend.flex} ${trend.itemsCenter}`}><PiLinkBold /></button>
+                  <div><img src={posts.img} alt="image" className={`${feed.img}`} /></div>
+
+                  <div className={`${feed.ico} ${Class.justifyBetween}`}>
+                    <div className={`${feed.ico}`}><PiArrowFatUpBold fontSize={22} fontWeight={700} />15</div>
+                    <div className={`${feed.ico}`}><TbMessage2 fontSize={22} fontWeight={700}/>15</div>
+                    <div className={`${feed.ico}`}><PiLinkBold fontSize={22} fontWeight={700}/></div>
                   </div>
                 </div>
               </>
