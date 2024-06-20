@@ -3,11 +3,17 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import UserContextProvider from "./Context/UserContext/UserContextProvider.jsx";
+import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <UserContextProvider>
     <React.StrictMode>
-      <App />
+      <ToastContainer position="top-center" />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </React.StrictMode>
   </UserContextProvider>
 );

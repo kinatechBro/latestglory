@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 
 import { navstyle } from "../Data/Data";
 
-function Nav() {
+function Nav({ userId }) {
+  console.log(userId);
   return (
     <>
       <nav className={`${navstyle.nav}`}>
