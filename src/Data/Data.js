@@ -147,7 +147,7 @@ export const paragraphs = {
     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta placeat dolorem a repellat, modi quae. Atque odit aspernatur vero explicabo, libero obcaecati voluptatem ab expedita provident ipsum accusamus quidem commodi.",
 };
 export const sections = {
-  hidden: "hidden",
+  hidden: "hidden", 
   grid: "md:grid ",
   pt16: "pt-16",
   px16: "px-16",
