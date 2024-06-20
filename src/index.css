@@ -6,6 +6,7 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+   background: #4e4e4e;
 }
 
 img {
@@ -22,26 +23,4 @@ input[type="text"] {
 
 button {
   cursor: pointer;
-}
-
-input[type="text"] {
-  outline: none;
-  border: none;
-}
-
-body {
- background: #4e4e4e;
-}
-
-.container .placeholder {
-  display: none;
-}
-
-@media (max-width: 600px) {
-  .container button:nth-child(n + 5) {
-    display: none;
-  }
-  .container .placeholder {
-    display: block;
-  }
 }

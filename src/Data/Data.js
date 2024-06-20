@@ -1,4 +1,3 @@
-
 import pix_one from "../assets/laptop.jpg";
 import pix_two from "../assets/laptop1.webp";
 import pix_three from "../assets/sm.jpg";
@@ -6,16 +5,20 @@ import pix_four from "../assets/computer.jpg";
 import pix_five from "../assets/bg.jpg";
 import pix_six from "../assets/field.jpg";
 
-//utilityClass
 const now = new Date();
+
+export const data = {};
+
 export const Class = {
+  white: "text-white",
   flex: "flex",
   grid: "grid",
   roundedMd: "rounded-md",
   justifyBetween: "justify-between",
   itemsCenter: "items-center",
-}
-export const shorts = [
+  hidden: "hidden",
+};
+export const latestPosts = [
   {
     id: 1,
     text: "intresting heading",
@@ -33,26 +36,88 @@ export const shorts = [
   },
 ];
 
+//====================Blog.jsx start====================//
+export const blog = {
+  parentContainer:
+    "text-white md:rounded-xl rounded-t-xl h-auto bg-[#242424] mx-0 xl:mx-40 mt-16 md:mt-0 px-2 py-4 md:px-4",
+  subNav: "flex items-center justify-between gap-8 pb-4",
+  category:
+    "flex gap-4 font-bold items-center flex-nowrap overflow-hidden container",
+  categoryTextStyle: "font-bold items-center",
+  categoryActive:
+    "text-blue-400 border-[#4d4d4d] border bg-[#3a3a3a] rounded-xl p-2 cursor-pointer buttons",
+  fullPage: "border rounded-full p-2 w-60",
+  mdFlex: "md:flex",
+};
+export const categories = [
+  {
+    id: 1,
+    category: "Discover",
+    route: "discover"
+  },
+  {
+    id: 2,
+    category: "Sports",
+  },
+  {
+    id: 3,
+    category: "Play",
+  },
+  {
+    id: 4,
+    category: "Money",
+  },
+  {
+    id: 5,
+    category: "Gaming",
+  },
+  {
+    id: 6,
+    category: "Weather",
+  },
+  {
+    id: 7,
+    category: "Watch",
+  },
+  {
+    id: 8,
+    category: "Learning",
+  },
+  {
+    id: 9,
+    category: "Health",
+  },
+  {
+    id: 10,
+    category: "Travel",
+  },
+  {
+    id: 11,
+    category: "Traffic",
+  },
+];
+//====================Blog.jsx stop====================//
 
 //====================feed.jsx start====================//
 export const feed = {
   img: "bg-[#242424] rounded-xl h-32 w-full my-2",
   heading: "font-bold text-lg leading-6",
-  readMore: "bg-white p-2 rounded-xl text-black font-[500] items-center gap-2 flex w-fit absolute right-4 top-4 cursor-pointer",
+  readMore:
+    "bg-white p-2 rounded-xl text-black font-[500] items-center gap-2 flex w-fit absolute right-4 top-4 cursor-pointer",
   ico: "flex items-center gap-2",
   tag: "bg-[#242424] rounded-md p-1 text-lg mr-2",
   card: "h-96 bg-[#333] rounded-md p-4 flex flex-col justify-between relative pt-14 cursor-pointer",
-  responsive: "2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid grid-cols-1 gap-8",
-    day: now.getDate(),
-
-} 
+  responsive:
+    "2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid grid-cols-1 gap-8",
+  day: now.getDate(),
+};
 
 // tags
 export const tags = {
-tag1 : "#React",
-tag2 : "#JavaScript",
-tag3: "+3 tags",
-}
+  tag1: "#React",
+  tag2: "#JavaScript",
+  tag3: "+3 tags",
+};
 
 export const blogPosts = [
   {
@@ -104,7 +169,6 @@ export const blogPosts = [
 
 //====================feed.jsx end====================//
 
-
 //====================nav.jsx start====================//
 export const navstyle = {
   dispflex: "flex",
@@ -123,7 +187,6 @@ export const navstyle = {
 };
 //====================nav.jsx end====================//
 
-
 // ====================singlePosts.jsx  start====================//
 export const singlePosts = {
   white: "text-white",
@@ -131,6 +194,9 @@ export const singlePosts = {
   pageHeadingStyle: "",
   navContent: "Single Post",
   navContentStyle: "text-3xl font-bold p-4",
+  sectionsGrid:
+    "grid gap-2  md:grid-cols-[70%_auto] xl:grid-cols-[20%_50%_auto] grid-cols-1 w-full",
+  sectionLeft: "bg-[#201f1f] h-auto hidden xl:grid rounded-md",
 };
 export const paragraphs = {
   postHeading: "text-3xl font-bold",
@@ -148,14 +214,16 @@ export const sections = {
   grid: "md:grid ",
   pt16: "pt-16",
   px16: "px-16",
-  style: "bg-[#201f1f] rounded-md h-auto p-2",
-}; 
+  style: "bg-[#201f1f] h-auto p-2",
+};
 export const postsTags = {
   style:
     "p-4 bg-[#333] mb-2 rounded-r-full cursor-pointer hover:underline w-3/4 font-bold",
+  latestPostStyle: "flex items-center gap-2 pb-2",
+  latestPostLinks:
+    "rounded-md bg-[#333] p-1 h-40 flex justify-between flex-col",
 };
 
-export const laptop = pix_two
-
+export const laptop = pix_two;
 
 // ====================singlePosts.jsx  end====================//

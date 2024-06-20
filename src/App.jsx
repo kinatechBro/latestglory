@@ -3,6 +3,7 @@ import Auth from "./Auth/Auth";
 import AddNewPost from "./Pages/AddNewPost";
 import SinglePost from "./Pages/SinglePost";
 import Home from "./Pages/Home";
+import Feed from "./Components/Feed";
 export default function App() {
   return (
     <div>
@@ -10,9 +11,10 @@ export default function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/new" element={<AddNewPost />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/singlePost" element={<SinglePost />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/new" element={<AddNewPost />} />
+          <Route path="/singlepost" element={<SinglePost />} />
         </Routes>
       </BrowserRouter>
 

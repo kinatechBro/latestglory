@@ -9,14 +9,13 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 
 import { Link } from "react-router-dom";
 
-import { tags, blogPosts, Class, feed, } from "../Data/Data";
-
+import { tags, blogPosts, Class, feed } from "../Data/Data";
 
 function Trending() {
 
   return (
     <div>
-      <OwlCarousel className={`owl-theme `} items={3} loop margin={30} nav>
+      <OwlCarousel className={`owl-theme ${Class.white}`} items={3} loop margin={30} nav>
         {
           blogPosts.map((posts) => {
             return (
