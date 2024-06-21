@@ -1,4 +1,3 @@
-
 import pix_one from "../assets/laptop.jpg";
 import pix_two from "../assets/laptop1.webp";
 import pix_three from "../assets/sm.jpg";
@@ -182,7 +181,7 @@ export const navstyle = {
   microsoftStart: "hidden md:flex text-lg font-bold",
   second: "absolute -bottom-16 w-full md:static  md:w-3/5 ",
   divSecond: "px-5  gap-5 items-center rounded-full bg-[#333] w-full",
-  searchInput: "bg-[#333] w-full",
+  searchInput: "bg-[#333] w-full text-xl p-2 outline-none border-none",
   copilot: "w-10 h-10",
   third: "flex gap-2 items-center",
 };
@@ -228,3 +227,22 @@ export const postsTags = {
 export const laptop = pix_two;
 
 // ====================singlePosts.jsx  end====================//
+
+// ====================Auth.jsx  start====================//
+export const authStyle = {
+  body: "h-screen bg-black text-white flex justify-center items-center",
+  card: "bg-[#242424] w-4/5 sm:w-1/2 rounded-xl p-6 sm:px-16",
+  heading: "text-2xl font-bold text-center",
+  input: "p-2 outline-none bg-transparent w-full",
+  inputBorder: "border-b-2 ",
+  flexCol: "flex flex-col",
+  itemsCenter: "items-center",
+  gap: "gap-4",
+  bgWhite: "bg-white",
+  form: " flex flex-col gap-4 py-4 w-full",
+  signInSignUpBtnBig: "text-black font-bold p-2 rounded-md w-full my-2",
+  signInSignUpBtnSmall:
+    "bg-white p-1 rounded-md text-black font-semibold cursor-pointer",
+  foot: "items-center justify-between flex-col flex gap-2",
+};
+// ====================Auth.jsx  end====================//

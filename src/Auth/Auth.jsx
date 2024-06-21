@@ -13,7 +13,7 @@ import { useContext } from "react";
 import { toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
-
+import { authStyle } from "../Data/Data"
 //Component Function
 function Auth() {
   const navigate = useNavigate();
@@ -90,56 +90,74 @@ function Auth() {
 
   return (
     <>
-        <div className="">
-          <div>{!signUp ? <h2>Sign in</h2> : <h2>Sign Up</h2>}</div>
-          <div>
-            <form action="">
+      <div className={`${authStyle.body}`}>
+        <div className={`${authStyle.card}`}>
+          <div className={`${authStyle.heading}`}>{!signUp ? <h2>Sign in</h2> : <h2>Sign Up</h2>}</div>
+          <div className={`${authStyle.flexCol} ${authStyle.itemsCenter}`}>
+            <form action="" className={`${authStyle.form}`}>
               {/* show this extra form if in sign up page */}
               {signUp && (
-                <>
-                  <input  
-                    type="text"
-                    placeholder="First Name"
-                    name="firstName"
-                    value={firstName}
-                    onChange={handleChange}
-                  />
+                <div className={`${authStyle.flexCol} ${authStyle.gap}`}>
+                  <div className={`${authStyle.inputBorder}`}>
+                    <input
+                      type="text"
+                      placeholder="First Name"
+                      name="firstName"
+                      value={firstName}
+                      onChange={handleChange}
+                      className={`${authStyle.input} `}
+                    />
+                  </div>
 
-                  <input    
-                    type="text"
-                    placeholder="Last Name"
-                    name="lastName"
-                    value={lastName}
-                    onChange={handleChange}
-                  />
+                  <div className={`${authStyle.inputBorder}`}>
+                    <input
+                      type="text"
+                      placeholder="Last Name"
+                      name="lastName"
+                      value={lastName}
+                      onChange={handleChange}
+                      className={`${authStyle.input}`}
+                    />
+                  </div>
 
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    name="confirmPassword"
-                    value={confirmPassword}
-                    onChange={handleChange}
-                  />
-                </>
+
+                  <div className={`${authStyle.inputBorder}`}>
+                    <input
+                      type="password"
+                      placeholder="Confirm Password"
+                      name="confirmPassword"
+                      value={confirmPassword}
+                      onChange={handleChange}
+                      className={`${authStyle.input}`}
+                    />
+                  </div>
+                </div>
               )}
               {/* end of show this extra form if in sign up page */}
-              <input
-                type="email"
-                placeholder="email"
-                name="email"
-                value={email}
-                onChange={handleChange}
-              />{" "}
-              <input
-                type="password"
-                placeholder="password"
-                name="password"
-                value={password}
-                onChange={handleChange}
-              />
+              <div className={`${authStyle.inputBorder}`}>
+                <input
+                  type="email"
+                  placeholder="email"
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                  className={`${authStyle.input}`}
+                />
+              </div>
+              <div className={`${authStyle.inputBorder}`}>
+                <input
+                  type="password"
+                  placeholder="password"
+                  name="password"
+                  value={password}
+                  onChange={handleChange}
+                  className={`${authStyle.input}`}
+
+                />
+              </div>
               <div>
                 <button
-                  className={`${!signUp ? "bg-slate-400" : "bg-red-800"}`}
+                  className={`${!signUp ? `${authStyle.bgWhite}` : `${authStyle.bgWhite}`} ${authStyle.signInSignUpBtnBig}`}
                   type="submit"
                   onClick={handleAuth}
                 >
@@ -151,16 +169,16 @@ function Auth() {
             <div>
               {!signUp ? (
                 <>
-                  <div>
+                  <div className={`${authStyle.foot}`}>
                     <p>Don't have an account ?</p>
-                    <span onClick={() => setSignUp(true)}>Sign UP</span>
+                    <span onClick={() => setSignUp(true)} className={`${authStyle.signInSignUpBtnSmall}`} >Sign up</span>
                   </div>
                 </>
               ) : (
                 <>
-                  <div>
-                    <p>Already have an account? ?</p>
-                    <span onClick={() => setSignUp(false)}>Sign In</span>
+                  <div className={`${authStyle.foot}`}>
+                    <p>Already have an account? </p>
+                    <span onClick={() => setSignUp(false)} className={`${authStyle.signInSignUpBtnSmall}`}>Sign In</span>
                   </div>
                 </>
               )}
@@ -168,6 +186,7 @@ function Auth() {
 
           </div>
         </div>
+      </div>
     </>
   );
 }
