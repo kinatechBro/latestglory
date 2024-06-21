@@ -3,9 +3,15 @@ import {
   postsTags,
   sections,
   paragraphs,
-  shorts,
+  latestPosts,
   laptop,
+  feed,
+  Class
 } from "../Data/Data";
+import { PiArrowFatUpBold } from "react-icons/pi";
+import { TbMessage2 } from "react-icons/tb";
+import { PiLinkBold } from "react-icons/pi";
+
 
 function SinglePost() {
   return (
@@ -75,7 +81,7 @@ function SinglePost() {
                 <div className={`${postsTags.style}`}>Latest posts</div>
 
                 <div className={`flex items-center gap-2 pb-2`}>
-                  {shorts.map((posts) => {
+                  {latestPosts.map((posts) => {
                     return (
                       <div key={posts.id}>
                         <div
@@ -98,7 +104,7 @@ function SinglePost() {
                 <div className={`${postsTags.style}`}>Popular posts</div>
 
                 <div className={`flex items-center gap-2`}>
-                  {shorts.map((posts) => {
+                  {latestPosts.map((posts) => {
                     return (
                       <div key={posts.id}>
                         <div

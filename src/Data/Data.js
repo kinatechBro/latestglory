@@ -1,3 +1,4 @@
+
 import pix_one from "../assets/laptop.jpg";
 import pix_two from "../assets/laptop1.webp";
 import pix_three from "../assets/sm.jpg";
@@ -16,8 +17,9 @@ export const Class = {
   roundedMd: "rounded-md",
   justifyBetween: "justify-between",
   itemsCenter: "items-center",
+  hidden: "hidden",
 };
-export const shorts = [
+export const latestPosts = [
   {
     id: 1,
     text: "intresting heading",
@@ -34,6 +36,68 @@ export const shorts = [
     img: "src/assets/laptop1.webp",
   },
 ];
+
+//====================Blog.jsx start====================//
+export const blog = {
+  parentContainer:
+    "text-white md:rounded-xl rounded-t-xl h-auto bg-[#242424] mx-0 xl:mx-40 mt-16 md:mt-0 px-2 py-4 md:px-4",
+  subNav: "flex items-center justify-between gap-8 pb-4",
+  category:
+    "flex gap-4 font-bold items-center flex-nowrap overflow-hidden container",
+  categoryTextStyle: "font-bold items-center",
+  categoryActive:
+    "text-blue-400 border-[#4d4d4d] border bg-[#3a3a3a] rounded-xl p-2 cursor-pointer buttons",
+  fullPage: "border rounded-full p-2 w-60",
+  mdFlex: "md:flex",
+};
+export const categories = [
+  {
+    id: 1,
+    category: "Discover",
+    route: "discover",
+  },
+  {
+    id: 2,
+    category: "Sports",
+  },
+  {
+    id: 3,
+    category: "Play",
+  },
+  {
+    id: 4,
+    category: "Money",
+  },
+  {
+    id: 5,
+    category: "Gaming",
+  },
+  {
+    id: 6,
+    category: "Weather",
+  },
+  {
+    id: 7,
+    category: "Watch",
+  },
+  {
+    id: 8,
+    category: "Learning",
+  },
+  {
+    id: 9,
+    category: "Health",
+  },
+  {
+    id: 10,
+    category: "Travel",
+  },
+  {
+    id: 11,
+    category: "Traffic",
+  },
+];
+//====================Blog.jsx stop====================//
 
 //====================feed.jsx start====================//
 export const feed = {
@@ -147,11 +211,11 @@ export const paragraphs = {
     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta placeat dolorem a repellat, modi quae. Atque odit aspernatur vero explicabo, libero obcaecati voluptatem ab expedita provident ipsum accusamus quidem commodi.",
 };
 export const sections = {
-  hidden: "hidden", 
+  hidden: "hidden",
   grid: "md:grid ",
   pt16: "pt-16",
   px16: "px-16",
-  style: "bg-[#201f1f] rounded-md h-auto p-2",
+  style: "bg-[#201f1f] h-auto p-2",
 };
 export const postsTags = {
   style:
@@ -164,4 +228,3 @@ export const postsTags = {
 export const laptop = pix_two;
 
 // ====================singlePosts.jsx  end====================//
-const postCategories = [{ id: 1, categoris: "Sport" }];

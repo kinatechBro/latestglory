@@ -8,7 +8,7 @@ import NotFound from "./Pages/NotFound";
 import Auth from "./Auth/Auth";
 import { useEffect, useState } from "react";
 import { auth } from "./firebase";
-
+import SinglePosts from "./Pages/SinglePost"
 export default function App() {
   const [user, setUser] = useState(null);
 
@@ -30,6 +30,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/notfound" element={<NotFound />} />
         <Route path="/auth" element={<Auth />} />
+        <Route path="/singlePosts" element={<SinglePosts />} />
       </Routes>
     </div>
   );

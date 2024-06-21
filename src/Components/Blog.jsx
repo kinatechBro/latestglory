@@ -1,12 +1,12 @@
-// import CategoriesNav from "./CategoriesNav";
+import CategoriesNav from "./CategoriesNav";
 import Trending from "./Trending"
 import Feed from "../Components/Feed";
-// import { blog } from "../Data/Data"
+import { blog } from "../Data/Data"
 
 function Blog() {
   return (
     <>
-      <div>
+      <div className={`${blog.parentContainer}`}>
         <CategoriesNav />
         <Trending />
         <Feed />

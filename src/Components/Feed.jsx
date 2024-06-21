@@ -15,10 +15,10 @@ function Feed() {
         {blogPosts.map((posts) => {
           return (
             <>
-              <div className={`${feed.card}`}>
-                <Link to="singlepost">
+              <div className={`${feed.card}`} key={posts.id}>
+                <Link to="singlePosts">
                   <div className={`${feed.readMore}`}>
-                    <button>read more</button>
+                    <butsinglePostston>read more</butsinglePostston>
                     <HiOutlineExternalLink />
                   </div>
                 </Link>

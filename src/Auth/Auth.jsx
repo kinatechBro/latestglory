@@ -90,83 +90,84 @@ function Auth() {
 
   return (
     <>
-      <div className="container">
-        <div>{!signUp ? <h2>Sign in</h2> : <h2>Sign Up</h2>}</div>
-        <div>
-          <form action="">
-            {/* show this extra form if in sign up page */}
-            {signUp && (
-              <>
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  name="firstName"
-                  value={firstName}
-                  onChange={handleChange}
-                />
-
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  name="lastName"
-                  value={lastName}
-                  onChange={handleChange}
-                />
-
-                <input
-                  type="password"
-                  placeholder="Confirm Password"
-                  name="confirmPassword"
-                  value={confirmPassword}
-                  onChange={handleChange}
-                />
-              </>
-            )}
-            {/* end of show this extra form if in sign up page */}
-            <input
-              type="email"
-              placeholder="email"
-              name="email"
-              value={email}
-              onChange={handleChange}
-            />{" "}
-            <input
-              type="password"
-              placeholder="password"
-              name="password"
-              value={password}
-              onChange={handleChange}
-            />
-            <div>
-              <button
-                className={`${!signUp ? "bg-slate-400" : "bg-red-800"}`}
-                type="submit"
-                onClick={handleAuth}
-              >
-                {!signUp ? "Sign In" : "Sign Up"}
-              </button>
-            </div>
-          </form>
-
+        <div className="">
+          <div>{!signUp ? <h2>Sign in</h2> : <h2>Sign Up</h2>}</div>
           <div>
-            {!signUp ? (
-              <>
-                <div>
-                  <p>Don't have an account ?</p>
-                  <span onClick={() => setSignUp(true)}>Sign UP</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <div>
-                  <p>Already have an account? ?</p>
-                  <span onClick={() => setSignUp(false)}>Sign In</span>
-                </div>
-              </>
-            )}
+            <form action="">
+              {/* show this extra form if in sign up page */}
+              {signUp && (
+                <>
+                  <input  
+                    type="text"
+                    placeholder="First Name"
+                    name="firstName"
+                    value={firstName}
+                    onChange={handleChange}
+                  />
+
+                  <input    
+                    type="text"
+                    placeholder="Last Name"
+                    name="lastName"
+                    value={lastName}
+                    onChange={handleChange}
+                  />
+
+                  <input
+                    type="password"
+                    placeholder="Confirm Password"
+                    name="confirmPassword"
+                    value={confirmPassword}
+                    onChange={handleChange}
+                  />
+                </>
+              )}
+              {/* end of show this extra form if in sign up page */}
+              <input
+                type="email"
+                placeholder="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+              />{" "}
+              <input
+                type="password"
+                placeholder="password"
+                name="password"
+                value={password}
+                onChange={handleChange}
+              />
+              <div>
+                <button
+                  className={`${!signUp ? "bg-slate-400" : "bg-red-800"}`}
+                  type="submit"
+                  onClick={handleAuth}
+                >
+                  {!signUp ? "Sign In" : "Sign Up"}
+                </button>
+              </div>
+            </form>
+
+            <div>
+              {!signUp ? (
+                <>
+                  <div>
+                    <p>Don't have an account ?</p>
+                    <span onClick={() => setSignUp(true)}>Sign UP</span>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <p>Already have an account? ?</p>
+                    <span onClick={() => setSignUp(false)}>Sign In</span>
+                  </div>
+                </>
+              )}
+            </div>
+
           </div>
         </div>
-      </div>
     </>
   );
 }
