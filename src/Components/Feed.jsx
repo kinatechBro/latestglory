@@ -15,10 +15,13 @@ function Feed() {
         {blogPosts.map((posts) => {
           return (
             <>
-              <div className={`${feed.card} ${gradientColor.gradient} `}>
-                <Link to="singlepost">
+              <div
+                className={`${feed.card} ${gradientColor.gradient} `}
+                key={posts.id}
+              >
+                <Link to="singlePosts">
                   <div className={`${feed.readMore}`}>
-                    <button>read more</button>
+                    <butsinglePostston>read more</butsinglePostston>
                     <HiOutlineExternalLink />
                   </div>
                 </Link>

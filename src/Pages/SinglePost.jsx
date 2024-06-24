@@ -3,9 +3,15 @@ import {
   postsTags,
   sections,
   paragraphs,
-  shorts,
+  latestPosts,
   laptop,
+  feed,
+  Class
 } from "../Data/Data";
+import { PiArrowFatUpBold } from "react-icons/pi";
+import { TbMessage2 } from "react-icons/tb";
+import { PiLinkBold } from "react-icons/pi";
+
 
 function SinglePost() {
   return (
@@ -42,6 +48,31 @@ function SinglePost() {
                 <p>{paragraphs.paragraphsText}</p>
                 <p>{paragraphs.paragraphsText}</p>
               </div>
+
+              <div className={`${feed.ico} ${Class.justifyBetween} bg-[#252525] rounded-lg p-2 cursor-pointer my-4`}>
+                <div className={`${feed.ico}`}><PiArrowFatUpBold fontSize={22} fontWeight={700} />15</div>
+                <div className={`${feed.ico}`}><TbMessage2 fontSize={22} fontWeight={700} />15</div>
+                <div className={`${feed.ico}`}><PiLinkBold fontSize={22} fontWeight={700} /></div>
+              </div>
+
+
+              <div className="bg-[#252525] rounded-lg p-1">
+                <h3 className={`${paragraphs.subhead} py-2`}>Similar Posts</h3>
+                <div className={`${postsTags.latestPostStyle} cursor-pointer`}>
+                  {
+                    latestPosts.map((posts) => {
+                      return (
+                        <div key={posts.id}>
+                          <div className={`${postsTags.latestPostLinks} h-52`}>
+                            <h3 className={`font-[500] text-lg leading-5`}>{posts.text}</h3>
+                            <img src={posts.img} alt="" className="rounded-md bg-[#414141]" />
+                          </div>
+                        </div>
+                      )
+                    })
+                  }
+                </div>
+             </div>
             </div>
             <div
               className={`${sections.style} ${sections.hidden} ${sections.grid} `}
@@ -50,7 +81,7 @@ function SinglePost() {
                 <div className={`${postsTags.style}`}>Latest posts</div>
 
                 <div className={`flex items-center gap-2 pb-2`}>
-                  {shorts.map((posts) => {
+                  {latestPosts.map((posts) => {
                     return (
                       <div key={posts.id}>
                         <div
@@ -73,7 +104,7 @@ function SinglePost() {
                 <div className={`${postsTags.style}`}>Popular posts</div>
 
                 <div className={`flex items-center gap-2`}>
-                  {shorts.map((posts) => {
+                  {latestPosts.map((posts) => {
                     return (
                       <div key={posts.id}>
                         <div

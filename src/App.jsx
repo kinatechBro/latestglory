@@ -7,6 +7,7 @@ import NotFound from "./Pages/NotFound";
 import Auth from "./Auth/Auth";
 import { useEffect, useState } from "react";
 import { auth } from "./firebase";
+import SinglePosts from "./Pages/SinglePost";
 import BlogPostForm from "./Pages/BlogPostForm";
 
 export default function App() {
@@ -30,7 +31,6 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/notfound" element={<NotFound />} />
         <Route path="/auth" element={<Auth />} />
-        <Route path="/add" element={<BlogPostForm />} />
       </Routes>
     </div>
   );

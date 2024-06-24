@@ -4,6 +4,7 @@ import { MdNotificationsNone } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaMicrosoft } from "react-icons/fa";
 import { SiMicrosoftedge } from "react-icons/si";
+import { Link } from "react-router-dom";
 
 import { navstyle } from "../Data/Data";
 
@@ -17,8 +18,7 @@ function Nav({ userId }) {
             <div className={`${navstyle.text2rem}`}>
               <IoIosKeypad />
             </div>
-
-            <FaMicrosoft />
+            <Link to="/"><FaMicrosoft /></Link>
             <p className={`${navstyle.microsoftStart} `}>Microsoft Start</p>
           </div>
 

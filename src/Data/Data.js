@@ -5,16 +5,20 @@ import pix_four from "../assets/computer.jpg";
 import pix_five from "../assets/bg.jpg";
 import pix_six from "../assets/field.jpg";
 
-//utilityClass
 const now = new Date();
+
+export const data = {};
+
 export const Class = {
+  white: "text-white",
   flex: "flex",
   grid: "grid",
   roundedMd: "rounded-md",
   justifyBetween: "justify-between",
   itemsCenter: "items-center",
+  hidden: "hidden",
 };
-export const shorts = [
+export const latestPosts = [
   {
     id: 1,
     text: "intresting heading",
@@ -31,6 +35,68 @@ export const shorts = [
     img: "src/assets/laptop1.webp",
   },
 ];
+
+//====================Blog.jsx start====================//
+export const blog = {
+  parentContainer:
+    "text-white md:rounded-xl rounded-t-xl h-auto bg-[#242424] mx-0 xl:mx-40 mt-16 md:mt-0 px-2 py-4 md:px-4",
+  subNav: "flex items-center justify-between gap-8 pb-4",
+  category:
+    "flex gap-4 font-bold items-center flex-nowrap overflow-hidden container",
+  categoryTextStyle: "font-bold items-center",
+  categoryActive:
+    "text-blue-400 border-[#4d4d4d] border bg-[#3a3a3a] rounded-xl p-2 cursor-pointer buttons",
+  fullPage: "border rounded-full p-2 w-60",
+  mdFlex: "md:flex",
+};
+export const categories = [
+  {
+    id: 1,
+    category: "Discover",
+    route: "discover",
+  },
+  {
+    id: 2,
+    category: "Sports",
+  },
+  {
+    id: 3,
+    category: "Play",
+  },
+  {
+    id: 4,
+    category: "Money",
+  },
+  {
+    id: 5,
+    category: "Gaming",
+  },
+  {
+    id: 6,
+    category: "Weather",
+  },
+  {
+    id: 7,
+    category: "Watch",
+  },
+  {
+    id: 8,
+    category: "Learning",
+  },
+  {
+    id: 9,
+    category: "Health",
+  },
+  {
+    id: 10,
+    category: "Travel",
+  },
+  {
+    id: 11,
+    category: "Traffic",
+  },
+];
+//====================Blog.jsx stop====================//
 
 //====================feed.jsx start====================//
 export const feed = {
@@ -115,7 +181,7 @@ export const navstyle = {
   microsoftStart: "hidden md:flex text-lg font-bold",
   second: "absolute -bottom-16 w-full md:static  md:w-3/5 ",
   divSecond: "px-5  gap-5 items-center rounded-full bg-[#333] w-full",
-  searchInput: "bg-[#333] w-full",
+  searchInput: "bg-[#333] w-full text-xl p-2 outline-none border-none",
   copilot: "w-10 h-10",
   third: "flex gap-2 items-center",
 };
@@ -128,6 +194,9 @@ export const singlePosts = {
   pageHeadingStyle: "",
   navContent: "Single Post",
   navContentStyle: "text-3xl font-bold p-4",
+  sectionsGrid:
+    "grid gap-2  md:grid-cols-[70%_auto] xl:grid-cols-[20%_50%_auto] grid-cols-1 w-full",
+  sectionLeft: "bg-[#201f1f] h-auto hidden xl:grid rounded-md",
 };
 export const paragraphs = {
   postHeading: "text-3xl font-bold",
@@ -145,11 +214,14 @@ export const sections = {
   grid: "md:grid ",
   pt16: "pt-16",
   px16: "px-16",
-  style: "bg-[#201f1f] rounded-md h-auto p-2",
+  style: "bg-[#201f1f] h-auto p-2",
 };
 export const postsTags = {
   style:
     "p-4 bg-[#333] mb-2 rounded-r-full cursor-pointer hover:underline w-3/4 font-bold",
+  latestPostStyle: "flex items-center gap-2 pb-2",
+  latestPostLinks:
+    "rounded-md bg-[#333] p-1 h-40 flex justify-between flex-col",
 };
 
 export const gradientColor = {
@@ -159,4 +231,22 @@ export const gradientColor = {
 export const laptop = pix_two;
 
 // ====================singlePosts.jsx  end====================//
-const postCategories = [{ id: 1, categoris: "Sport" }];
+
+// ====================Auth.jsx  start====================//
+export const authStyle = {
+  body: "h-screen bg-black text-white flex justify-center items-center",
+  card: "bg-[#242424] w-4/5 sm:w-1/2 rounded-xl p-6 sm:px-16",
+  heading: "text-2xl font-bold text-center",
+  input: "p-2 outline-none bg-transparent w-full",
+  inputBorder: "border-b-2 ",
+  flexCol: "flex flex-col",
+  itemsCenter: "items-center",
+  gap: "gap-4",
+  bgWhite: "bg-white",
+  form: " flex flex-col gap-4 py-4 w-full",
+  signInSignUpBtnBig: "text-black font-bold p-2 rounded-md w-full my-2",
+  signInSignUpBtnSmall:
+    "bg-white p-1 rounded-md text-black font-semibold cursor-pointer",
+  foot: "items-center justify-between flex-col flex gap-2",
+};
+// ====================Auth.jsx  end====================//
