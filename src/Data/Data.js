@@ -152,6 +152,10 @@ export const postsTags = {
     "p-4 bg-[#333] mb-2 rounded-r-full cursor-pointer hover:underline w-3/4 font-bold",
 };
 
+export const gradientColor = {
+  gradient:
+    "outline outline-2 gradient-colors(magenta, cyan) gradient-direction-br p-4 rounded",
+};
 export const laptop = pix_two;
 
 // ====================singlePosts.jsx  end====================//

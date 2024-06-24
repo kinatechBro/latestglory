@@ -1,32 +1,25 @@
-import { useState } from "react";
-
+import React from "react";
+import { app } from "../firebase";
+import { firestore } from "firebase/firestore";
 function AddNewPost() {
-  function renderDate(date) {
-    const now = date;
-    const year = now.getFullYear();
-    const day = now.getDay();
-    const days = now.getDate();
-    return `${year}/${day}/${days}`;
-  }
-
-  const [format, setFormat] = useState(renderDate(new Date()));
-
-  const handleCheck = () => {
-    setFormat(() => {
-      const newDate = new Date();
-      const date = newDate.getDate();
-      const year = newDate.getFullYear();
-      return `today date is ${date} of ${year}`;
-    });
+  const addBlogPost = async (blogPost) => {
+    const newPostRef = firestore.collection("blogPosts").doc();
+    await newPostRef.set(blogPost);
+  };
+  const blogPost = {
+    title: "My Blog Post",
+    content: "This is the content of my blog post",
+    // Add any other fields you need for your blog post
   };
 
-  return (
-    <div>
-      add new post
-      <h1>{format}</h1>
-      <button onClick={handleCheck}>check</button>
-    </div>
-  );
+  addBlogPost(blogPost)
+    .then(() => {
+      console.log("Blog post added successfully");
+    })
+    .catch((error) => {
+      console.error("Error adding blog post:", error);
+    });
+  return <div>AddNewPost</div>;
 }
 
 export default AddNewPost;

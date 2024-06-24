@@ -5,7 +5,7 @@ import { PiLinkBold } from "react-icons/pi";
 import { PiArrowFatUpBold } from "react-icons/pi";
 import { HiOutlineExternalLink } from "react-icons/hi";
 
-import { tags, blogPosts, Class, feed } from "../Data/Data";
+import { tags, blogPosts, Class, feed, gradientColor } from "../Data/Data";
 
 function Feed() {
   return (
@@ -15,7 +15,7 @@ function Feed() {
         {blogPosts.map((posts) => {
           return (
             <>
-              <div className={`${feed.card}`}>
+              <div className={`${feed.card} ${gradientColor.gradient} `}>
                 <Link to="singlepost">
                   <div className={`${feed.readMore}`}>
                     <button>read more</button>
