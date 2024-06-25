@@ -4,5 +4,9 @@ export default {
   theme: {
     extend: {},
   },
+
+  utilities: {
+    borderGradient: true,
+  },
   plugins: [],
 };

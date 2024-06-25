@@ -224,6 +224,9 @@ export const postsTags = {
     "rounded-md bg-[#333] p-1 h-40 flex justify-between flex-col",
 };
 
+export const gradientColor = {
+  gradient: " border-gradient-red-orange border-2",
+};
 export const laptop = pix_two;
 
 // ====================singlePosts.jsx  end====================//

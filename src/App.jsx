@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Detail from "./Pages/Detail";
-import Create from "./Pages/Create";
 import AddEditBlog from "./Pages/AddEditBlog";
 import About from "./Pages/About";
 import NotFound from "./Pages/NotFound";
 import Auth from "./Auth/Auth";
 import { useEffect, useState } from "react";
 import { auth } from "./firebase";
-import SinglePosts from "./Pages/SinglePost"
+import SinglePost from "./Pages/SinglePost";
+
 export default function App() {
   const [user, setUser] = useState(null);
 
@@ -29,8 +29,8 @@ export default function App() {
         <Route path="/update/:id" element={<AddEditBlog />} />
         <Route path="/about" element={<About />} />
         <Route path="/notfound" element={<NotFound />} />
+        <Route path="/singlePost" element={<SinglePost />} />
         <Route path="/auth" element={<Auth />} />
-        <Route path="/singlePosts" element={<SinglePosts />} />
       </Routes>
     </div>
   );
