@@ -225,8 +225,7 @@ export const postsTags = {
 };
 
 export const gradientColor = {
-  gradient:
-    "outline outline-2 gradient-colors(magenta, cyan) gradient-direction-br p-4 rounded",
+  gradient: " border-gradient-red-orange border-2",
 };
 export const laptop = pix_two;
 
