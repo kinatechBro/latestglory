@@ -1,4 +1,3 @@
-import Trending from "./Trending";
 import { Link } from "react-router-dom";
 import { TbMessage2 } from "react-icons/tb";
 import { PiLinkBold } from "react-icons/pi";
@@ -10,7 +9,6 @@ import { tags, blogPosts, Class, feed } from "../Data/Data";
 function Feed() {
   return (
     <>
-      <Trending />
       <div className={`${feed.responsive}`}>
         {blogPosts.map((posts) => {
           return (
@@ -54,9 +52,7 @@ function Feed() {
           );
         })}
 
-        <div>
-          <Link to="auth">Test Login </Link>
-        </div>
+        
       </div>
     </>
   );

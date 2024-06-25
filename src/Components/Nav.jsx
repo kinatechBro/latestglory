@@ -34,13 +34,9 @@ function Nav({ userId }) {
             </div>
           </div>
 
-          <div className={`${navstyle.third} `}>
-            <div></div>
-            <MdNotificationsNone />
-            <div />
-            <div></div>
-            <IoSettingsOutline />
-            <div />
+          <div className={`${navstyle.third} text-lg fo `}>
+              <div className="bg-[#242424] p-2 rounded-full"><Link to="auth">Sign In</Link></div>
+              <div className="bg-[#242424] p-2 rounded-full"><Link to="auth">Sign Up</Link></div>
           </div>
         </div>
       </nav>

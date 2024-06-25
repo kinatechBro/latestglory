@@ -19,7 +19,7 @@ function Trending() {
           return (
             <>
               <div className={`${feed.card}`}>
-                <Link to="singlepost">
+                <Link to="singlePosts">
                   <div className={`${feed.readMore}`}>
                     <button>read more</button>
                     <HiOutlineExternalLink />

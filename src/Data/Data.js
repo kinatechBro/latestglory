@@ -231,7 +231,7 @@ export const laptop = pix_two;
 // ====================Auth.jsx  start====================//
 export const authStyle = {
   body: "h-screen bg-black text-white flex justify-center items-center",
-  card: "bg-[#242424] w-4/5 sm:w-1/2 rounded-xl p-6 sm:px-16",
+  card: "bg-[#242424] w-11/12 sm:w-1/2 rounded-xl p-8 lg:w-2/6",
   heading: "text-2xl font-bold text-center",
   input: "p-2 outline-none bg-transparent w-full",
   inputBorder: "border-b-2 ",

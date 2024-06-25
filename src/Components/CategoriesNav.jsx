@@ -11,7 +11,7 @@ function CategoriesNav() {
                         categories.map((category, index) => {
                             return (
                                 <Link to={category.category} className={`${blog.categoryTextStyle}`}>
-                                    <p key={index} className={`${index === 0 ? `${blog.categoryActive}` : ``}`}>{category.category}</p>
+                                    <p className={`${index === 0 ? `${blog.categoryActive}` : ``}`}>{category.category}</p>
                                 </Link>
                             )
                         })
