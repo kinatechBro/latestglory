@@ -1,5 +1,5 @@
 import { categories, blog, Class } from "../Data/Data"
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function CategoriesNav() {
     return (
@@ -10,9 +10,9 @@ function CategoriesNav() {
                     {
                         categories.map((category, index) => {
                             return (
-                                <Link to={category.category} className={`${blog.categoryTextStyle}`}>
+                                <NavLink to={category.category} className={`${blog.categoryTextStyle}`} key={category.id}>
                                     <p className={`${index === 0 ? `${blog.categoryActive}` : ``}`}>{category.category}</p>
-                                </Link>
+                                </NavLink>
                             )
                         })
                     }

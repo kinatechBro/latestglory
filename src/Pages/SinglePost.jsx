@@ -12,6 +12,7 @@ import { PiArrowFatUpBold } from "react-icons/pi";
 import { TbMessage2 } from "react-icons/tb";
 import { PiLinkBold } from "react-icons/pi";
 
+import PostsCard from "../Components/PostsCard";
 
 function SinglePost() {
   return (
@@ -102,26 +103,19 @@ function SinglePost() {
                 </div>
 
                 <div className={`${postsTags.style}`}>Popular posts</div>
-
-                <div className={`flex items-center gap-2`}>
-                  {latestPosts.map((posts) => {
-                    return (
-                      <div key={posts.id}>
-                        <div
-                          className={`rounded-md bg-[#333] p-1 h-40 flex justify-between flex-col`}
-                        >
-                          <h3 className={`font-[500] text-base leading-5`}>
-                            {posts.text}
-                          </h3>
-                          <img
-                            src={posts.img}
-                            alt=""
-                            className="rounded-md bg-[#414141]"
-                          />
+                <div className={`${postsTags.latestPostStyle} cursor-pointer`}>
+                  {
+                    latestPosts.map((posts) => {
+                      return (
+                        <div key={posts.id}>
+                          <div className={`${postsTags.latestPostLinks} h-52`}>
+                            <h3 className={`font-[500] text-lg leading-5`}>{posts.text}</h3>
+                            <img src={posts.img} alt="" className="rounded-md bg-[#414141]" />
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      )
+                    })
+                  }
                 </div>
               </div>
             </div>
