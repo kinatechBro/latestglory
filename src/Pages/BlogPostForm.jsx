@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
-import { app } from "../firebase";
+//import { app } from "../firebase";
 //import { addBlogPost } from "../func/firebase";
 import "react-quill/dist/quill.snow.css"; // Import Quill styles
 import { addBlogPost } from "../func/firebaselogic";
@@ -27,6 +27,9 @@ const BlogPostForm = () => {
     } catch (error) {
       alert("Error adding blog post: " + error.message);
     }
+  };
+  const modules = {
+    toolbar: [[{ header: [1, 2, 3, 4, 5, 6, false], font: [] }]],
   };
 
   return (

@@ -1,4 +1,5 @@
 import Feed from "../Components/Feed";
+import BlogPostForm from "../Pages/BlogPostForm";
 function Blog() {
   return (
     <>
@@ -33,6 +34,8 @@ function Blog() {
           </div>
         </div>
         <Feed />
+
+        <BlogPostForm />
       </div>
     </>
   );
