@@ -1,13 +1,12 @@
 
 import PostsCard from "./PostsCard";
-import { blogPosts } from "../Data/Data";
 
-function Feed() {
+function Feed({postsData}) {
   return (
     <>
-     <PostsCard postsData={blogPosts}/>
+      <PostsCard postsData={postsData}/>
     </>
   );
 }
 
-export default Feed;
+export default Feed

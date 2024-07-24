@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import { categories,  createBlog } from "../Data/Data"
+import { categories, createBlog } from "../Data/Data";
+
+import { db, storage } from "../firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const initalState = {
   title: "",
@@ -9,16 +13,101 @@ const initalState = {
   trenidng: "No",
 };
 
-
-
 function AddEditBlog() {
   const [form, setForm] = useState(initalState);
   const [file, setFile] = useState(null);
   const { title, tags, category, trenidng, description } = form;
 
-  const handleChange = (e) => { };
-  const handleTrending = () => { };
-  const onCategryChange = () => { };
+  const uploadMedia = () => {
+    // Create the file metadata
+    /** @type {any} */
+    const metadata = {
+      contentType: "image/jpeg",
+    };
+
+    // Upload file and metadata to the object 'images/mountains.jpg'
+    const storageRef = ref(storage, "postsImages/" + file.name);
+    const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+
+    // Listen for state changes, errors, and completion of the upload.
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+        switch (snapshot.state) {
+          case "paused":
+            console.log("Upload is paused");
+            break;
+          case "running":
+            console.log("Upload is running");
+            break;
+        }
+      },
+      (error) => {
+        // A full list of error codes is available at
+        // https://firebase.google.com/docs/storage/web/handle-errors
+        switch (error.code) {
+          case "storage/unauthorized":
+            // User doesn't have permission to access the object
+            break;
+          case "storage/canceled":
+            // User canceled the upload
+            break;
+
+          // ...
+
+          case "storage/unknown":
+            // Unknown error occurred, inspect error.serverResponse
+            break;
+        }
+      },
+      () => {
+        // Upload completed successfully, now we can get the download URL
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log("File available at", downloadURL);
+          setForm((preValue) => ({ ...preValue, img: downloadURL }));
+        });
+      }
+    );
+  };
+
+  useEffect(() => {
+    file && uploadMedia();
+  }, [file]);
+
+  console.log(form);
+
+  // firbase
+  const sendToDb = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "posts"), {
+        ...form,
+        timeStamp: serverTimestamp(),
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
+  // firbase
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sendToDb();
+  };
+  const handleTrending = () => {};
+  const onCategryChange = () => {};
   return (
     <div className={`${createBlog.parentContainer}`}>
       <div className={`${createBlog.container}`}>
@@ -40,11 +129,10 @@ function AddEditBlog() {
               <input
                 type="text"
                 placeholder="title"
-                name="title"
-                value={title}
+                name="tags"
+                value={tags}
                 onChange={handleChange}
                 className={`${createBlog.titleInput}`}
-
               />
             </div>
 
@@ -54,28 +142,33 @@ function AddEditBlog() {
                 <div className={`${createBlog.radioOption}`}>
                   <input
                     type="radio"
-                    name="radioOption"
+                    name="trenidng"
                     value="yes"
                     checked={trenidng === "yes"}
-                    onChange={handleTrending}
+                    onChange={handleChange}
                   />
-                  <label htmlFor="radioOption"> yes</label>
+                  <label> yes</label>
                 </div>
 
                 <div className={`${createBlog.radioOption}`}>
                   <input
                     type="radio"
-                    name="radioOption"
+                    name="trenidng"
                     value="no"
                     checked={trenidng === "no"}
-                    onChange={handleTrending}
+                    onChange={handleChange}
                   />
-                  <label htmlFor="radioOption">no</label>
+                  <label>no</label>
                 </div>
               </div>
 
               <div>
-                <select value={category} onChange={onCategryChange} className="w-80 p-2 rounded-md border-none outline-none text-black" >
+                <select
+                  name="category"
+                  value={category}
+                  onChange={handleChange}
+                  className="w-80 p-2 rounded-md border-none outline-none text-black"
+                >
                   <option>Select Category</option>
                   {categories.map((option, index) => (
                     <option value={option || ""} key={index}>
@@ -86,7 +179,7 @@ function AddEditBlog() {
               </div>
               <div>
                 <textarea
-                  name="decription"
+                  name="description"
                   value={description}
                   placeholder="decription"
                   onChange={handleChange}
@@ -100,29 +193,45 @@ function AddEditBlog() {
                   onChange={(e) => setFile(e.target.files[0])}
                   className="border-2 border-transparent bg-transparent "
                 /> */}
-                
-                <div className={`${createBlog.fileInputDiv}`}>
-                  <label for="dropzone-file" className={`${createBlog.fileInputLabel}`}>
 
-                    <div class={`${createBlog.fileInputSvg}`}>
-                      
-                      <p className={`${createBlog.fileInputText}`}><span className={`${createBlog.fileInputSpan}`}>Click to upload</span> or drag and drop</p>
-                      <p className={`${createBlog.fileInputFileType}`}>SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                <div className={`${createBlog.fileInputDiv}`}>
+                  <label
+                    for="dropzone-file"
+                    className={`${createBlog.fileInputLabel}`}
+                  >
+                    <div className={`${createBlog.fileInputSvg}`}>
+                      <p className={`${createBlog.fileInputText}`}>
+                        <span className={`${createBlog.fileInputSpan}`}>
+                          Click to upload
+                        </span>{" "}
+                        or drag and drop
+                      </p>
+                      <p className={`${createBlog.fileInputFileType}`}>
+                        SVG, PNG, JPG or GIF (MAX. 800x400px)
+                      </p>
                     </div>
-                    <input id="dropzone-file" type="file" className={`${createBlog.fileInputHidden}`} onChange={(e) => setFile(e.target.files[0])} />
+                    <input
+                      id="dropzone-file"
+                      type="file"
+                      className={`${createBlog.fileInputHidden}`}
+                      onChange={(e) => setFile(e.target.files[0])}
+                    />
                   </label>
                 </div>
-
               </div>
 
               <div>
-                <button type="submit" className={`${createBlog.submitBtn}`}>Add Blog</button>
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className={`${createBlog.submitBtn}`}
+                >
+                  Add Blog
+                </button>
               </div>
-
             </div>
           </form>
         </div>
-        
       </div>
     </div>
   );

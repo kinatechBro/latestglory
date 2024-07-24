@@ -4,37 +4,44 @@ import { PiLinkBold } from "react-icons/pi";
 import { PiArrowFatUpBold } from "react-icons/pi";
 import { HiOutlineExternalLink } from "react-icons/hi";
 
-import { tags, Class, feed, gradientColor } from "../Data/Data";
+import { tags, Class, feed, gradientColor, singlePosts } from "../Data/Data";
 
-function PostsCard({postsData}) {
+function PostsCard({ postsData }) {
   return (
     <>
-    <div className={`${feed.responsive} `}>
-    {postsData.map((posts) => {
+      <div className={`${feed.responsive} `}>
+        {postsData.map((posts) => {
+          console.log(posts);
+          // console.log(posts.form)
+          // const title = posts.title;
+          const { id, tags, title, img, timeStamp } = posts;
+          console.log(timeStamp)
           return (
             <>
               <div
                 className={`${feed.card} ${gradientColor.gradient} `}
                 key={posts.id}
               >
-                <Link to="singlePosts">
+                <Link to={`/singleposts/${id}`}>
                   <button className={`${feed.readMore}`}>
                     <butsinglePostston>read more</butsinglePostston>
                     <HiOutlineExternalLink />
                   </button>
                 </Link>
                 <div>
-                  <p className={`${feed.heading}`}>{posts.text}</p>
+                  {/* <p className={`${feed.heading}`}>{posts.text}</p> */}
+                  <p className={`${feed.heading}`}>{title}</p>
                 </div>
                 <div>
-                  <button className={`${feed.tag}`}>{tags.tag1}</button>
+                  <button className={`${feed.tag}`}>{tags}</button>
                   <button className={`${feed.tag}`}>{tags.tag2}</button>
                   <button className={`${feed.tag}`}>{tags.tag3}</button>
                 </div>
-                <div>June {feed.day} • 16m read time</div>
+                <div>{timeStamp.toDate().toLocaleString()} • 16m read time</div>
+
 
                 <div>
-                  <img src={posts.img} alt="image" className={`${feed.img}`} />
+                  <img src={img} alt="image" className={`${feed.img}`} />
                 </div>
 
                 <div className={`${feed.ico} ${Class.justifyBetween}`}>
@@ -54,9 +61,9 @@ function PostsCard({postsData}) {
             </>
           );
         })}
-    </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default PostsCard
+export default PostsCard;

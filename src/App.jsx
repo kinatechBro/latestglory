@@ -23,22 +23,17 @@ export default function App() {
     });
   }, []);
 
-
   const postsData = [
     {
       id: 1,
       text: "How To Create React Elements with JSX ",
       img: pix_one,
     },
-  ]
-  
-
-
-
+  ];
 
   return (
     <div>
-      <Nav/>
+      <Nav />
       <Routes>
         <Route path="/" element={<Home user={user} setUser={setUser} />} />
         <Route path="/detail/:id" element={<Detail />} />
@@ -46,11 +41,10 @@ export default function App() {
         <Route path="/update/:id" element={<AddEditBlog />} />
         <Route path="/about" element={<About />} />
         <Route path="/notfound" element={<NotFound />} />
-        <Route path="/singleposts" element={<SinglePost />} />
+        <Route path="/singleposts/:id" element={<SinglePost />} />
         <Route path="/auth" element={<Auth />} />
-        <Route path="/card" element={<PostsCard postsData={postsData}/>} />
+        <Route path="/card" element={<PostsCard postsData={postsData} />} />
       </Routes>
-
     </div>
   );
 }
