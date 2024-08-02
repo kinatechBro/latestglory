@@ -1,29 +1,27 @@
-import OwlCarousel from "react-owl-carousel";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
-
+import { Link } from "react-router-dom";
 import { TbMessage2 } from "react-icons/tb";
 import { PiLinkBold } from "react-icons/pi";
 import { PiArrowFatUpBold } from "react-icons/pi";
 import { HiOutlineExternalLink } from "react-icons/hi";
 
-import { Link } from "react-router-dom";
+import { tags, Class, feed, gradientColor } from "../Data/Data";
 
-import { tags, blogPosts, Class, feed } from "../Data/Data";
-
-function Trending() {
+function PostsCard({ postsData }) {
   return (
-    <div>
-      <OwlCarousel className={`owl-theme `} items={3} loop margin={30} nav>
-        {blogPosts.map((posts) => {
+    <>
+      <div className={`${feed.responsive} `}>
+        {postsData.map((posts) => {
           return (
             <>
-              <div className={`${feed.card}`}>
+              <div
+                className={`${feed.card} ${gradientColor.gradient} `}
+                key={posts.id}
+              >
                 <Link to="singlePosts">
-                  <div className={`${feed.readMore}`}>
-                    <button>read more</button>
+                  <button className={`${feed.readMore}`}>
+                    <butsinglePostston>read more</butsinglePostston>
                     <HiOutlineExternalLink />
-                  </div>
+                  </button>
                 </Link>
                 <div>
                   <p className={`${feed.heading}`}>{posts.text}</p>
@@ -56,9 +54,9 @@ function Trending() {
             </>
           );
         })}
-      </OwlCarousel>
-    </div>
+      </div>
+    </>
   );
 }
 
-export default Trending;
+export default PostsCard;
