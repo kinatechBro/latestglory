@@ -3,14 +3,14 @@ import Trending from "../Components/Trending";
 import Feed from "../Components/Feed";
 import { blog } from "../Data/Data";
 
-function Home({ postData, user }) {
+function Home() {
   return (
     <>
       <div className={`${blog.parentContainer}`}>
         <CategoriesNav />
-        <Trending postsData={postData} />
+        {/* <Trending /> */}
         <br />
-        <Feed postsData={postData} user={user} />
+        {/* <Feed /> */}
       </div>
     </>
   );

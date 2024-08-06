@@ -4,6 +4,7 @@ import { categories, createBlog } from "../Data/Data";
 import { db, storage } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { toast } from "react-toastify";
 
 const initalState = {
   title: "",
@@ -13,7 +14,7 @@ const initalState = {
   trenidng: "No",
 };
 
-function AddEditBlog() {
+function AddEditBlog({ user }) {
   const [form, setForm] = useState(initalState);
   const [file, setFile] = useState(null);
   const { title, tags, category, trenidng, description } = form;
@@ -37,6 +38,7 @@ function AddEditBlog() {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log("Upload is " + progress + "% done");
+        toast.info("Upload is " + progress + "% done");
         switch (snapshot.state) {
           case "paused":
             console.log("Upload is paused");
@@ -66,8 +68,10 @@ function AddEditBlog() {
       },
       () => {
         // Upload completed successfully, now we can get the download URL
+
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
+          toast.success("Upload is done");
           setForm((preValue) => ({ ...preValue, img: downloadURL }));
         });
       }
@@ -86,8 +90,11 @@ function AddEditBlog() {
       const docRef = await addDoc(collection(db, "posts"), {
         ...form,
         timeStamp: serverTimestamp(),
+        author: user.displayName,
+        userId: user.uid,
       });
       console.log("Document written with ID: ", docRef.id);
+      toast.success("Blog added sucessfull");
     } catch (e) {
       console.error("Error adding document: ", e);
     }

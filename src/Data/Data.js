@@ -254,28 +254,29 @@ export const authStyle = {
 };
 // ====================Auth.jsx  end====================//
 
-
 // ====================AddEditBlog.jsx  start====================//
 export const createBlog = {
-  parentContainer : "bg-[#242424] py-16",
+  parentContainer: "bg-[#242424] py-16",
   flex: "flex",
-  container : "w-4/5 text-[#333] py-16 shadow-lg bg-neutral-200 p-8 rounded-md m-[0_auto]",
+  container:
+    "w-4/5 text-[#333] py-16 shadow-lg bg-neutral-200 p-8 rounded-md m-[0_auto]",
   heading: "text-4xl font-bold",
-  titleInput: "w-full bg-transparent h-16 border-neutral-700 text-2xl border-2 rounded-md my-2",
+  titleInput:
+    "w-full bg-transparent h-16 border-neutral-700 text-2xl border-2 rounded-md my-2",
   flexGap: "flex-col flex gap-4",
   submitBtn: "bg-white rounded-lg p-4 text-black",
-  textarea: "w-full h-60 border-none outline-none rounded-md p-2 text-lg text-black resize-none",
+  textarea:
+    "w-full h-60 border-none outline-none rounded-md p-2 text-lg text-black resize-none",
   radioOption: "flex gap-2 items-center",
   radio: "flex gap-4",
 
-  fileInputSpan : "font-semibold",
-  fileInputDiv : "flex items-center justify-center w-full",
-  fileInputSvg : "flex flex-col items-center justify-center pt-5 pb-6",
-  fileInputFileType : "text-xs text-gray-500 dark:text-gray-400",
-  fileInputText : "mb-2 text-sm text-gray-500 dark:text-gray-400",
+  fileInputSpan: "font-semibold",
+  fileInputDiv: "flex items-center justify-center w-full",
+  fileInputSvg: "flex flex-col items-center justify-center pt-5 pb-6",
+  fileInputFileType: "text-xs text-gray-500 dark:text-gray-400",
+  fileInputText: "mb-2 text-sm text-gray-500 dark:text-gray-400",
   fileInputHidden: "hidden",
-  fileInputLabel : "flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-[#242424] hover:bg-[#333] dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-[#333]"
-
-
-}
+  fileInputLabel:
+    "flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-[#242424] hover:bg-[#333] dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-[#333]",
+};
 // ====================AddEditBlog.jsx  end====================//

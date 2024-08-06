@@ -1,12 +1,14 @@
 import PostsCard from "./PostsCard";
 import { feed } from "../Data/Data";
+import { getData } from "../contexts/DataProviderContex";
 
-function Feed({ postsData, user}) {
+function Feed() {
+  const { postsData } = getData();
   return (
     <>
       <div className={`${feed.responsive}`}>
         {postsData.map((posts) => (
-          <PostsCard postsData={posts} key={posts.id} user={user} />
+          <PostsCard postsData={posts} key={posts.id} />
         ))}
       </div>
     </>

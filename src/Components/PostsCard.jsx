@@ -3,11 +3,13 @@ import { TbMessage2 } from "react-icons/tb";
 import { PiLinkBold } from "react-icons/pi";
 import { PiArrowFatUpBold } from "react-icons/pi";
 import { HiOutlineExternalLink } from "react-icons/hi";
+import { useAuth } from "../contexts/UserProviderContext";
 
-import { Class, feed, gradientColor, } from "../Data/Data";
+import { Class, feed, gradientColor } from "../Data/Data";
 
-function PostsCard({ postsData, user}) {
-  const {id, title,img,timeStamp, tags,} = postsData;
+function PostsCard({ postsData }) {
+  const { user } = useAuth();
+  const { id, title, img, timeStamp, tags } = postsData;
   return (
     <>
       <div>
