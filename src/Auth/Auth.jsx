@@ -74,7 +74,7 @@ function Auth() {
             const { firstName, lastName } = user;
             console.log(firstName);
             console.log(user);
-            setState(user);
+            // setState(user);
             navigate("/");
           })
           .catch((error) => {

@@ -1,12 +1,16 @@
-
 import PostsCard from "./PostsCard";
+import { feed } from "../Data/Data";
 
-function Feed({postsData}) {
+function Feed({ postsData, user}) {
   return (
     <>
-      <PostsCard postsData={postsData}/>
+      <div className={`${feed.responsive}`}>
+        {postsData.map((posts) => (
+          <PostsCard postsData={posts} key={posts.id} user={user} />
+        ))}
+      </div>
     </>
   );
 }
 
-export default Feed
+export default Feed;

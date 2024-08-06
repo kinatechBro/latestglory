@@ -18,7 +18,7 @@ function Trending({ postsData }) {
         {postsData.map((posts) => {
           const { id } = posts;
           return (
-            <>
+          
               <div className={`${feed.card}`} key={id}>
                 <Link to={`/singleposts/${id}`}>
                   <div className={`${feed.readMore}`}>
@@ -54,7 +54,7 @@ function Trending({ postsData }) {
                   </div>
                 </div>
               </div>
-            </>
+            
           );
         })}
       </OwlCarousel>
