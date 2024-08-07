@@ -11,50 +11,51 @@ import { Link } from "react-router-dom";
 
 import { tags, blogPosts, Class, feed } from "../Data/Data";
 
-function Trending({ postsData }) {
+import { getData } from "../contexts/DataProviderContex";
+
+function Trending() {
+  const { postsData } = getData();
   return (
     <div>
       <OwlCarousel className={`owl-theme `} items={3} loop margin={30} nav>
         {postsData.map((posts) => {
           const { id } = posts;
           return (
-            <>
-              <div className={`${feed.card}`} key={id}>
-                <Link to={`/singleposts/${id}`}>
-                  <div className={`${feed.readMore}`}>
-                    <button>read more</button>
-                    <HiOutlineExternalLink />
-                  </div>
-                </Link>
-                <div>
-                  <p className={`${feed.heading}`}>{posts.text}</p>
+            <div className={`${feed.card}`} key={id}>
+              <Link to={`/singleposts/${id}`}>
+                <div className={`${feed.readMore}`}>
+                  <button>read more</button>
+                  <HiOutlineExternalLink />
                 </div>
-                <div>
-                  <button className={`${feed.tag}`}>{tags.tag1}</button>
-                  <button className={`${feed.tag}`}>{tags.tag2}</button>
-                  <button className={`${feed.tag}`}>{tags.tag3}</button>
-                </div>
-                <div>June {feed.day} • 16m read time</div>
+              </Link>
+              <div>
+                <p className={`${feed.heading}`}>{posts.text}</p>
+              </div>
+              <div>
+                <button className={`${feed.tag}`}>{tags.tag1}</button>
+                <button className={`${feed.tag}`}>{tags.tag2}</button>
+                <button className={`${feed.tag}`}>{tags.tag3}</button>
+              </div>
+              <div>June {feed.day} • 16m read time</div>
 
-                <div>
-                  <img src={posts.img} alt="image" className={`${feed.img}`} />
-                </div>
+              <div>
+                <img src={posts.img} alt="image" className={`${feed.img}`} />
+              </div>
 
-                <div className={`${feed.ico} ${Class.justifyBetween}`}>
-                  <div className={`${feed.ico}`}>
-                    <PiArrowFatUpBold fontSize={22} fontWeight={700} />
-                    15
-                  </div>
-                  <div className={`${feed.ico}`}>
-                    <TbMessage2 fontSize={22} fontWeight={700} />
-                    15
-                  </div>
-                  <div className={`${feed.ico}`}>
-                    <PiLinkBold fontSize={22} fontWeight={700} />
-                  </div>
+              <div className={`${feed.ico} ${Class.justifyBetween}`}>
+                <div className={`${feed.ico}`}>
+                  <PiArrowFatUpBold fontSize={22} fontWeight={700} />
+                  15
+                </div>
+                <div className={`${feed.ico}`}>
+                  <TbMessage2 fontSize={22} fontWeight={700} />
+                  15
+                </div>
+                <div className={`${feed.ico}`}>
+                  <PiLinkBold fontSize={22} fontWeight={700} />
                 </div>
               </div>
-            </>
+            </div>
           );
         })}
       </OwlCarousel>

@@ -1,9 +1,19 @@
-import Blog from "../Components/Blog";
+import CategoriesNav from "../Components/CategoriesNav";
+import Trending from "../Components/Trending";
+import Feed from "../Components/Feed";
+import { blog } from "../Data/Data";
 
-export default function Home() {
+function Home() {
   return (
     <>
-      <Blog />
+      <div className={`${blog.parentContainer}`}>
+        <CategoriesNav />
+        {/* <Trending /> */}
+        <br />
+        {/* <Feed /> */}
+      </div>
     </>
   );
 }
+
+export default Home;

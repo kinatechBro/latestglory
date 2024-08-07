@@ -104,6 +104,10 @@ export const feed = {
   heading: "font-bold text-lg leading-6",
   readMore:
     "bg-white p-2 rounded-xl text-black font-[500] items-center gap-2 flex w-fit absolute right-4 top-4 cursor-pointer",
+  readMorey:
+    "bg-white p-2 rounded-xl text-black font-[500] items-center gap-2 flex w-fit absolute left-4 top-4 cursor-pointer",
+  readMoreyy:
+    "bg-white p-2 rounded-xl text-black font-[500] items-center gap-2 flex w-fit absolute left-20 top-4 cursor-pointer",
   ico: "flex items-center gap-2",
   tag: "bg-[#242424] rounded-md p-1 text-lg mr-2",
   card: "h-96 bg-[#333] rounded-md p-4 flex flex-col justify-between relative pt-14 cursor-pointer",

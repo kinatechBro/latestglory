@@ -34,14 +34,14 @@ function Nav() {
               </div>
             </div>
 
-            <div className={`${navstyle.third} text-lg fo `}>
+            {/* <div className={`${navstyle.third} text-lg fo `}>
               <div className="bg-[#242424] p-2 rounded-full">
                 <Link to="auth">Login</Link>
               </div>
               <div className="bg-[#242424] p-2 rounded-full">
                 <Link to="auth">Sign Up</Link>
               </div>
-            </div>
+            </div> */}
           </div>
         </nav>
       </header>

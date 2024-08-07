@@ -3,19 +3,20 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
+import { useAuth } from "../contexts/UserProviderContext";
 
 import { app } from "../firebase";
 
 import { useState } from "react";
-import userContext from "../Context/UserContext/UserContext";
-import { useContext } from "react";
 import { toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
-import { authStyle } from "../Data/Data"
+import { authStyle } from "../Data/Data";
 //Component Function
 function Auth() {
+  const { user, setUser } = useAuth();
   const navigate = useNavigate();
 
   //Inital State Data for sign Up and Sign In
@@ -29,7 +30,7 @@ function Auth() {
 
   const [state, setState] = useState(initialState);
   console.log(state);
-  const { signUp, setSignUp } = useContext(userContext);
+
   const { email, password, lastName, firstName, confirmPassword } = state;
 
   //handle change
@@ -42,7 +43,7 @@ function Auth() {
   const handleAuth = (e) => {
     e.preventDefault();
 
-    if (!signUp) {
+    if (!user) {
       if (email && password) {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
@@ -63,7 +64,7 @@ function Auth() {
       }
     } else {
       if (password !== confirmPassword) {
-        return toast.error("Password do'nt match");
+        return;
       }
       if (firstName && lastName && email && password) {
         const auth = getAuth();
@@ -71,10 +72,12 @@ function Auth() {
           .then((userCredential) => {
             // Signed up
             const user = userCredential.user;
-            const { firstName, lastName } = user;
+            updateProfile(user, {
+              displayName: `${firstName} ${lastName}`,
+            });
             console.log(firstName);
             console.log(user);
-            setState(user);
+            // setState(user);
             navigate("/");
           })
           .catch((error) => {
@@ -92,11 +95,13 @@ function Auth() {
     <>
       <div className={`${authStyle.body}`}>
         <div className={`${authStyle.card}`}>
-          <div className={`${authStyle.heading}`}>{!signUp ? <h2>Sign in</h2> : <h2>Sign Up</h2>}</div>
+          <div className={`${authStyle.heading}`}>
+            {!user ? <h2>Sign in</h2> : <h2>Sign Up</h2>}
+          </div>
           <div className={`${authStyle.flexCol} ${authStyle.itemsCenter}`}>
             <form action="" className={`${authStyle.form}`}>
               {/* show this extra form if in sign up page */}
-              {signUp && (
+              {user && (
                 <div className={`${authStyle.flexCol} ${authStyle.gap}`}>
                   <div className={`${authStyle.inputBorder}`}>
                     <input
@@ -119,7 +124,6 @@ function Auth() {
                       className={`${authStyle.input}`}
                     />
                   </div>
-
 
                   <div className={`${authStyle.inputBorder}`}>
                     <input
@@ -152,38 +156,48 @@ function Auth() {
                   value={password}
                   onChange={handleChange}
                   className={`${authStyle.input}`}
-
                 />
               </div>
               <div>
                 <button
-                  className={`${!signUp ? `${authStyle.bgWhite}` : `${authStyle.bgWhite}`} ${authStyle.signInSignUpBtnBig}`}
+                  className={`${
+                    !user ? `${authStyle.bgWhite}` : `${authStyle.bgWhite}`
+                  } ${authStyle.signInSignUpBtnBig}`}
                   type="submit"
                   onClick={handleAuth}
                 >
-                  {!signUp ? "Sign In" : "Sign Up"}
+                  {!user ? "Sign In" : "Sign Up"}
                 </button>
               </div>
             </form>
 
             <div>
-              {!signUp ? (
+              {!user ? (
                 <>
-                  <div className={`${authStyle.foot}`}>
+                  <div className={`${authStyle.foot}o`}>
                     <p>Don't have an account ?</p>
-                    <span onClick={() => setSignUp(true)} className={`${authStyle.signInSignUpBtnSmall}`} >Sign up</span>
+                    <span
+                      onClick={() => setUser(true)}
+                      className={`${authStyle.signInSignUpBtnSmall}`}
+                    >
+                      Sign up
+                    </span>
                   </div>
                 </>
               ) : (
                 <>
                   <div className={`${authStyle.foot}`}>
                     <p>Already have an account? </p>
-                    <span onClick={() => setSignUp(false)} className={`${authStyle.signInSignUpBtnSmall}`}>Sign In</span>
+                    <span
+                      onClick={() => setUser(false)}
+                      className={`${authStyle.signInSignUpBtnSmall}`}
+                    >
+                      Sign In
+                    </span>
                   </div>
                 </>
               )}
             </div>
-
           </div>
         </div>
       </div>
