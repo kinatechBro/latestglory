@@ -262,7 +262,7 @@ export const createBlog = {
   flexGap: "flex-col flex gap-4",
   submitBtn: "bg-white rounded-lg p-4 text-black",
   textarea:
-    "w-full h-60 border-none outline-none rounded-md p-2 text-lg text-black",
+    "w-full h-60 border-none outline-none rounded-md p-2 text-lg text-black resize-none",
   radioOption: "flex gap-2 items-center",
   radio: "flex gap-4",
 

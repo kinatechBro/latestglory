@@ -41,7 +41,7 @@ export default function App() {
         <Route path="/update/:id" element={<AddEditBlog />} />
         <Route path="/about" element={<About />} />
         <Route path="/notfound" element={<NotFound />} />
-        <Route path="/singleposts" element={<SinglePost />} />
+        <Route path="/singleposts/:id" element={<SinglePost />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/card" element={<PostsCard postsData={postsData} />} />
       </Routes>

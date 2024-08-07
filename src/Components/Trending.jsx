@@ -11,15 +11,16 @@ import { Link } from "react-router-dom";
 
 import { tags, blogPosts, Class, feed } from "../Data/Data";
 
-function Trending() {
+function Trending({ postsData }) {
   return (
     <div>
       <OwlCarousel className={`owl-theme `} items={3} loop margin={30} nav>
-        {blogPosts.map((posts) => {
+        {postsData.map((posts) => {
+          const { id } = posts;
           return (
             <>
-              <div className={`${feed.card}`}>
-                <Link to="singlePosts">
+              <div className={`${feed.card}`} key={id}>
+                <Link to={`/singleposts/${id}`}>
                   <div className={`${feed.readMore}`}>
                     <button>read more</button>
                     <HiOutlineExternalLink />
