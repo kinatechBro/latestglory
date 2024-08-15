@@ -6,11 +6,10 @@ import { blog } from "../Data/Data";
 function Home() {
   return (
     <>
-      <div className={`${blog.parentContainer}`}>
+      <div className={`${blog.container}`}>
         <CategoriesNav />
-        {/* <Trending /> */}
-        <br />
-        {/* <Feed /> */}
+        <Trending />
+        <Feed />
       </div>
     </>
   );

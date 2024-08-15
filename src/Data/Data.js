@@ -38,8 +38,8 @@ export const latestPosts = [
 
 //====================Blog.jsx start====================//
 export const blog = {
-  parentContainer:
-    "text-white md:rounded-xl rounded-t-xl h-auto bg-[#242424] mx-0 xl:mx-40 mt-16 md:mt-0 px-2 py-4 md:px-4",
+  container:
+    "w-11/12 md:w-[90%] text-white m-auto bg-[#242424] p-4 rounded-md md:px-8 my-2",
   subNav: "flex items-center justify-between gap-8 pb-4",
   category:
     "flex gap-4 font-bold items-center flex-nowrap overflow-hidden container",
@@ -103,16 +103,13 @@ export const feed = {
   img: "bg-[#242424] rounded-xl h-32 w-full my-2",
   heading: "font-bold text-lg leading-6",
   readMore:
-    "bg-white p-2 rounded-xl text-black font-[500] items-center gap-2 flex w-fit absolute right-4 top-4 cursor-pointer",
-  readMorey:
-    "bg-white p-2 rounded-xl text-black font-[500] items-center gap-2 flex w-fit absolute left-4 top-4 cursor-pointer",
-  readMoreyy:
-    "bg-white p-2 rounded-xl text-black font-[500] items-center gap-2 flex w-fit absolute left-20 top-4 cursor-pointer",
+    "bg-white p-1 rounded-md text-black font-medium items-center gap-2 flex w-fit absolute right-2 top-2 md:top-4 md:right-4 cursor-pointer",
   ico: "flex items-center gap-2",
   tag: "bg-[#242424] rounded-md p-1 text-lg mr-2",
-  card: "h-96 bg-[#333] rounded-md p-4 flex flex-col justify-between relative pt-14 cursor-pointer",
-  responsive:
-    "2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid grid-cols-1 gap-8",
+  card: "h-96 bg-[#333] rounded-md p-4 flex flex-col justify-between relative pt-10 cursor-pointer",
+  // responsive:
+  //   "2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid grid-cols-1 gap-8",
+  responsive: "grid gap-8",
   day: now.getDate(),
 };
 
@@ -175,20 +172,15 @@ export const blogPosts = [
 
 //====================nav.jsx start====================//
 export const navstyle = {
-  dispflex: "flex",
-  nav: "bg-red-500- m-[0_auto] flex justify-center text-white p-2",
-  subnav:
-    "relative  w-11/12 justify-between text-2xl md:text-3xl md:items-center md:w-11/12 place-content-center ",
-  firstDiv: "flex items-center gap-2 w-fit",
-  text2rem: "text-[2.2rem]",
-  microsoftImg: "hidden md:flex w-7 h-7",
-  microsoftStart: "hidden md:flex text-lg font-bold",
-  second: "absolute -bottom-16 w-full md:static  md:w-3/5 ",
-  divSecond: "px-5  gap-5 items-center rounded-full bg-[#333] w-full",
-  searchInput: "bg-[#333] w-full text-xl p-2 outline-none border-none",
-  copilot: "w-10 h-10",
-  third: "flex gap-2 items-center",
+  container: "grid text-white sm:grid-cols-[1fr_50%_1fr] py-1 gap-2 px-4",
+  iconContainer:
+    "flex items-center text-3xl gap-4 md:justify-center  cursor-pointer",
+  searchContainer:
+    "search flex items-center gap-2 bg-[#333] rounded-full p-1 px-2 ",
+  searchBarIcon: "text-2xl cursor-pointer",
+  searchInput: "bg-transparent w-full outline-none border-none",
 };
+
 //====================nav.jsx end====================//
 
 // ====================singlePosts.jsx  start====================//

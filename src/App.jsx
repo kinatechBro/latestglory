@@ -25,7 +25,8 @@ export default function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/create" element={<AddEditBlog />} />
-        <Route path="/update/:id" element={user ? <AddEditBlog /> : <Home />} />
+        {/* <Route path="/update/:id" element={user ? <AddEditBlog /> : <Home />} /> */}
+        <Route path="/update/:id" element={<AddEditBlog />} />
         <Route path="/about" element={<About />} />
         <Route path="/notfound" element={<NotFound />} />
         <Route path="/singleposts/:id" element={<SinglePost />} />

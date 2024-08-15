@@ -17,9 +17,12 @@ import PostsCard from "../Components/PostsCard";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { getData } from "../contexts/DataProviderContex";
 
 function SinglePost() {
+  const { postData } = getData();
+  console.log(postData);
   const { id } = useParams();
   const [readMore, setReadMore] = useState(null);
   useEffect(() => {
@@ -53,30 +56,29 @@ function SinglePost() {
           </nav>
 
           <div
-            className={`grid gap-2  md:grid-cols-[70%_auto] xl:grid-cols-[20%_50%_auto] grid-cols-1 w-full`}
+            // className={`grid gap-2  md:grid-cols-[auto_70%_auto] xl:grid-cols-[20%_50%_auto] grid-cols-1 w-full`}
+            className={`grid lg:grid-cols-[20%_50%_auto] gap-1`}
           >
             <div
-              className={`bg-[#201f1f] h-auto hidden xl:grid rounded-md`}
-            ></div>
+              className={`lg:order-1 order-3  p-4 bg-[#201f1f]`}
+            >
+            </div>
 
-            <div className={` ${sections.style} ${sections.px16} px-2 py-4 `}>
-              <h1 className={`${paragraphs.postHeading}`}>
-                {/* {paragraphs.postHeadingText} */}
-                {readMore?.title}
-              </h1>
+            <div
+              className={`lg:order-2 order-1 p-4 ${sections.style} ${sections.px16} px-2 py-4 `}
+            >
+              <h1 className={`${paragraphs.postHeading}`}>{readMore?.title}</h1>
               <div className={`${paragraphs.imgContainer}`}>
-                <img src={readMore?.img} alt="" className={`${paragraphs.imgStyle}`} />
+                <img
+                  src={readMore?.img}
+                  alt=""
+                  className={`${paragraphs.imgStyle}`}
+                />
               </div>
 
-              <h3 className={`${paragraphs.subhead}`}>
-                {/* {paragraphs.subheadText} */}
-                {readMore?.title}
-              </h3>
+              <h3 className={`${paragraphs.subhead}`}>{readMore?.title}</h3>
 
               <div className={`${paragraphs.style}`}>
-                {/* <p>{paragraphs.paragraphsText}</p>
-                <p>{paragraphs.paragraphsText}</p>
-                <p>{paragraphs.paragraphsText}</p> */}
                 {readMore?.description}
               </div>
 
@@ -96,74 +98,65 @@ function SinglePost() {
                 </div>
               </div>
 
-              <div className="bg-[#252525] rounded-lg p-1">
+              <div className="bg-[#252525] rounded-lg p-1 ">
                 <h3 className={`${paragraphs.subhead} py-2`}>Similar Posts</h3>
-                <div className={`${postsTags.latestPostStyle} cursor-pointer`}>
-                  {latestPosts.map((posts) => {
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                  {postData.map((posts) => {
+                    console.log(posts);
+                    const { id, title, img } = posts;
                     return (
-                      <div key={posts.id}>
-                        <div className={`${postsTags.latestPostLinks} h-52`}>
-                          <h3 className={`font-[500] text-lg leading-5`}>
-                            {posts.text}
+                      <Link key={id} to={`/singleposts/${posts.id}`}>
+                        <div className=" bg-[#333] p-2 rounded-md flex flex-col gap-2">
+                          <h3
+                            className={`font-[500] text-lg leading-5 text-wrap`}
+                          >
+                            {title}
                           </h3>
                           <img
-                            src={posts.img}
+                            src={img}
                             alt=""
-                            className="rounded-md bg-[#414141]"
+                            className="rounded-md bg-[#414141] w-full"
                           />
                         </div>
-                      </div>
+                      </Link>
                     );
                   })}
                 </div>
               </div>
             </div>
+
             <div
-              className={`${sections.style} ${sections.hidden} ${sections.grid} `}
+              className={`${sections.style} ${sections.grid} order-2 lg:order-3`}
             >
               <div className={`${sections.pt16}`}>
                 <div className={`${postsTags.style}`}>Latest posts</div>
-
-                <div className={`flex items-center gap-2 pb-2`}>
-                  {latestPosts.map((posts) => {
+                <div className="grid grid-cols-2 gap-2 pb-4 ">
+                  {postData.map((posts) => {
                     return (
-                      <div key={posts.id}>
-                        <div
-                          className={`rounded-md bg-[#333] p-1 h-40 flex justify-between flex-col`}
+                      <div
+                        key={posts.id}
+                        className=" bg-[#333] p-2 rounded-md flex flex-col gap-2 cursor-pointer"
+                      >
+                        <h3
+                          className={`font-[500] text-lg leading-5 text-wrap`}
                         >
-                          <h3 className={`font-[500] text-base leading-5`}>
-                            {posts.text}
-                          </h3>
-                          <img
-                            src={posts.img}
-                            alt=""
-                            className="rounded-md bg-[#414141]"
-                          />
-                        </div>
+                          {posts.title}
+                        </h3>
+                        <img
+                          src={posts.img}
+                          alt=""
+                          className="rounded-md bg-[#414141] w-full"
+                        />
                       </div>
                     );
                   })}
                 </div>
 
                 <div className={`${postsTags.style}`}>Popular posts</div>
-                <div className={`${postsTags.latestPostStyle} cursor-pointer`}>
-                  {latestPosts.map((posts) => {
-                    return (
-                      <div key={posts.id}>
-                        <div className={`${postsTags.latestPostLinks} h-52`}>
-                          <h3 className={`font-[500] text-lg leading-5`}>
-                            {posts.text}
-                          </h3>
-                          <img
-                            src={posts.img}
-                            alt=""
-                            className="rounded-md bg-[#414141]"
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
+
+                <div
+                  className={`${postsTags.latestPostStyle} cursor-pointer`}
+                ></div>
               </div>
             </div>
           </div>

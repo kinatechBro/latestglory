@@ -18,7 +18,6 @@ function DataProviderContex({ children }) {
         data.push({ id: doc.id, ...doc.data() });
 
         setPostData(data);
-        console.log(data);
         setIsLoading(false);
       });
     } catch (error) {
