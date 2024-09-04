@@ -8,9 +8,9 @@ function Home() {
     <>
       <div className={`${blog.parentContainer}`}>
         <CategoriesNav />
-        {/* <Trending /> */}
+        <Trending />
         <br />
-        {/* <Feed /> */}
+        <Feed />
       </div>
     </>
   );

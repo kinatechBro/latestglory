@@ -6,7 +6,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useAuth } from "../contexts/UserProviderContext";
-
 import { app } from "../firebase";
 
 import { useState } from "react";

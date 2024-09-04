@@ -16,7 +16,6 @@ function DataProviderContex({ children }) {
       querySnapshot.forEach((doc) => {
         // console.log(`${doc.id} => ${doc.data()}`);
         data.push({ id: doc.id, ...doc.data() });
-
         setPostData(data);
         console.log(data);
         setIsLoading(false);
