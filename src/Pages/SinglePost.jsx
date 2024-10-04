@@ -167,12 +167,12 @@ function SinglePost() {
     <div className="bg-[#201f1f] text-white min-h-screen">
       <nav className="bg-[#252525] p-4"></nav>
 
-      <div className="grid lg:grid-cols-[20%_50%_auto] gap-1">
+      <div className="grid lg:grid-cols-[20%_50%_auto] gap-1  ">
         <div className="lg:order-1 order-3 p-4"></div>
 
-        <div className="lg:order-2 order-1 p-4">
+        <div className="lg:order-2 order-1 p-4 border-white border-2 rounded-md">
           <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-          <div className="mb-4">
+          <div className="mb-4 flex justify-center">
             <img
               src={post.coverImageUrl}
               alt={post.title}
@@ -263,13 +263,16 @@ function SinglePost() {
             <h3 className="text-xl font-bold mb-4">Latest Posts</h3>
             <div className="grid grid-cols-2 gap-2">
               {postData.slice(0, 6).map((post) => (
-                <div key={post.id} className="bg-[#333] p-2 rounded-md">
-                  <Link to={`/singleposts/${post.id}`}>
-                    <h4 className="font-medium text-lg mb-2">{post.title}</h4>
+                <div key={post.id} className="bg-[#333] p-2 rounded-md ">
+                  <Link
+                    to={`/singleposts/${post.id}`}
+                    className="flex gap-4 items-center"
+                  >
+                    <h4 className="font-medium text-sm mb-2">{post.title}</h4>
                     <img
                       src={post.coverImageUrl}
                       alt={post.title}
-                      className="w-full rounded-md h-32 object-cover"
+                      className="w-full rounded-md h-12 object-cover"
                     />
                   </Link>
                 </div>

@@ -197,7 +197,7 @@ export const singlePosts = {
 };
 export const paragraphs = {
   postHeading: "text-3xl font-bold",
-  imgContainer: "h-96 bg-[#3d3d3d] rounded-xl my-6 object-fill w-full",
+  imgContainer: "h-[400px] bg-[#3d3d3d] rounded-xl my-6 object-fill w-[600px] ",
   imgStyle: "h-80 rounded-xl",
   subhead: "py-4 font-bold text-lg",
   style: "grid gap-5 text-justify",
