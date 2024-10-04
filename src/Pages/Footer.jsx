@@ -1,103 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { ExternalLink, Shield, Cookie, Book } from "lucide-react";
-
-function Privacy() {
-  return (
-    <div className="bg-gray-50 min-h-screen">
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Privacy & Cookies
-          </h1>
-        </div>
-      </header>
-      <main>
-        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          <div className="px-4 py-6 sm:px-0">
-            <PrivacyPolicy />
-            <div className="my-10 border-t border-gray-200"></div>
-            <CookiePolicy />
-          </div>
-        </div>
-      </main>
-    </div>
-  );
-}
-
-const PrivacyPolicy = () => {
-  return (
-    <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-      <div className="px-4 py-5 sm:px-6 flex items-center">
-        <Shield className="h-6 w-6 text-blue-500 mr-3" />
-        <h2 className="text-2xl font-semibold text-gray-900">Privacy Policy</h2>
-      </div>
-      <div className="border-t border-gray-200 px-4 py-5 sm:p-6">
-        <p className="text-gray-700 mb-4">
-          At kinatechbrainz.com, we take your privacy seriously. This policy
-          describes how we collect, use, and protect your personal information.
-        </p>
-        <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-4">
-          Information We Collect
-        </h3>
-        <ul className="list-disc list-inside mb-4 text-gray-700">
-          <li>Personal information you provide (e.g., name, email)</li>
-          <li>Usage data and analytics</li>
-          <li>Cookies and similar technologies</li>
-        </ul>
-        <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-4">
-          How We Use Your Information
-        </h3>
-        <p className="text-gray-700 mb-4">
-          We use your information to improve our services, personalize your
-          experience, and comply with legal obligations.
-        </p>
-        <p className="text-gray-700 mb-4">
-          For more details, please read our full{" "}
-          <Link to="/privacy" className="text-blue-600 hover:underline">
-            Privacy Policy
-          </Link>
-          .
-        </p>
-      </div>
-    </div>
-  );
-};
-
-const CookiePolicy = () => {
-  return (
-    <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-      <div className="px-4 py-5 sm:px-6 flex items-center">
-        <Cookie className="h-6 w-6 text-blue-500 mr-3" />
-        <h2 className="text-2xl font-semibold text-gray-900">Cookie Policy</h2>
-      </div>
-      <div className="border-t border-gray-200 px-4 py-5 sm:p-6">
-        <p className="text-gray-700 mb-4">
-          kinatechbrainz.com uses cookies to enhance your browsing experience
-          and provide personalized content.
-        </p>
-        <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-4">
-          What Are Cookies?
-        </h3>
-        <p className="text-gray-700 mb-4">
-          Cookies are small text files stored on your device when you visit our
-          website.
-        </p>
-        <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-4">
-          How We Use Cookies
-        </h3>
-        <ul className="list-disc list-inside mb-4 text-gray-700">
-          <li>Essential cookies for website functionality</li>
-          <li>Analytics cookies to understand user behavior</li>
-          <li>Advertising cookies for targeted content</li>
-        </ul>
-        <p className="text-gray-700 mb-4">
-          You can manage your cookie preferences in your browser settings.
-        </p>
-      </div>
-    </div>
-  );
-};
 
 const Footer = () => {
   return (
@@ -208,4 +110,4 @@ const Footer = () => {
   );
 };
 
-export default Privacy;
+export default Footer;

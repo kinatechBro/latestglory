@@ -1,16 +1,12 @@
-import CategoriesNav from "../Components/CategoriesNav";
-import Trending from "../Components/Trending";
-import Feed from "../Components/Feed";
 import { blog } from "../Data/Data";
+import Footer from "./Footer";
+import Post from "./Post";
 
 function Home() {
   return (
     <>
-      <div className={`${blog.parentContainer}`}>
-        <CategoriesNav />
-        <Trending />
-        <br />
-        <Feed />
+      <div className={`${blog.container}`}>
+        <Post />
       </div>
     </>
   );

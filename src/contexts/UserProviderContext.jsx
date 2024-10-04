@@ -7,14 +7,34 @@ function UserProviderContext({ children }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((authUser) => {
+  //     if (authUser) {
+  //       setUser(authUser);
+  //     } else setUser(null);
+  //   });
+  // }, []);
 
+  //User Observer
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
-      if (authUser) {
-        setUser(authUser);
-      } else setUser(null);
-    });
-  }, []);
+    onAuthStateChanged(
+      auth,
+      (user) => {
+        if (user) {
+          setUser(user);
+          const uid = user.uid;
+        } else {
+          setUser(null);
+        }
+
+        if (isLoading === true) {
+          // Only update loading state when it's true
+          setIsLoading(false);
+        }
+      },
+      [isLoading]
+    );
+  });
 
   return (
     <div>

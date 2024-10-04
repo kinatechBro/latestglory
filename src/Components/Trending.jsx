@@ -8,18 +8,20 @@ import { PiArrowFatUpBold } from "react-icons/pi";
 import { HiOutlineExternalLink } from "react-icons/hi";
 
 import { Link } from "react-router-dom";
-import { tags, blogPosts, Class, feed } from "../Data/Data";
+
+import { tags, gradientColor, Class, feed } from "../Data/Data";
+
 import { getData } from "../contexts/DataProviderContex";
 
 function Trending() {
   const { postData } = getData();
   return (
     <div>
-      <OwlCarousel className={`owl-theme `} items={3} loop margin={30} nav>
+      <OwlCarousel className={`owl-theme `} loop margin={30} nav>
         {postData.map((posts) => {
           const { id } = posts;
           return (
-            <div className={`${feed.card}`} key={id}>
+            <div className={`${feed.card} ${gradientColor.gradient}`} key={id}>
               <Link to={`/singleposts/${id}`}>
                 <div className={`${feed.readMore}`}>
                   <button>read more</button>

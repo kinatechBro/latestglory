@@ -1,36 +1,65 @@
 import { useContext, createContext, useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  query,
+  where,
+  getDocs,
+  updateDoc,
+} from "firebase/firestore";
+import { toast } from "react-toastify";
+
 import { db } from "../firebase";
 
 const dataContex = createContext();
 
 function DataProviderContex({ children }) {
   const [postData, setPostData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("Discover");
 
-  const fetchPostsData = async () => {
-    setIsLoading(true);
-    let data = [];
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchPosts();
+  }, [selectedCategory]);
+
+  const fetchPosts = async () => {
+    setLoading(true);
     try {
-      const querySnapshot = await getDocs(collection(db, "posts"));
-      querySnapshot.forEach((doc) => {
-        // console.log(`${doc.id} => ${doc.data()}`);
-        data.push({ id: doc.id, ...doc.data() });
-        setPostData(data);
-        console.log(data);
-        setIsLoading(false);
-      });
+      let postsQuery;
+      if (selectedCategory === "Discover") {
+        postsQuery = query(collection(db, "posts"));
+      } else {
+        postsQuery = query(
+          collection(db, "posts"),
+          where("category", "==", selectedCategory)
+        );
+      }
+
+      const querySnapshot = await getDocs(postsQuery);
+      const fetchedPosts = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setPostData(fetchedPosts);
     } catch (error) {
-      console.log(error);
+      toast.error("Error Fetching Posts");
+    } finally {
+      setLoading(false);
     }
   };
 
-  useEffect(() => {
-    fetchPostsData();
-  }, []);
-
   return (
-    <dataContex.Provider value={{ postData, setPostData }}>
+    <dataContex.Provider
+      value={{
+        postData,
+        setPostData,
+        loading,
+        setLoading,
+        selectedCategory,
+        setSelectedCategory,
+      }}
+    >
       {children}
     </dataContex.Provider>
   );

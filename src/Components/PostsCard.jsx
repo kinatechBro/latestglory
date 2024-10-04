@@ -5,6 +5,9 @@ import { PiArrowFatUpBold } from "react-icons/pi";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { useAuth } from "../contexts/UserProviderContext";
 
+import { MdModeEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+
 import { Class, feed, gradientColor } from "../Data/Data";
 
 function PostsCard({ postsData }) {
@@ -14,7 +17,10 @@ function PostsCard({ postsData }) {
     <>
       <div>
         <div className="flex">
-          <div className={`${feed.card} ${gradientColor.gradient}`} key={id}>
+          <div
+            className={`${feed.card} ${gradientColor.gradient} min-w-full`}
+            key={id}
+          >
             <Link to={`/singleposts/${id}`}>
               <button className={`${feed.readMore}`}>
                 {/* <butsinglePostston>read more</butsinglePostston> */}
@@ -24,16 +30,12 @@ function PostsCard({ postsData }) {
             </Link>
 
             {user && (
-              <div>
-                <button className={`${feed.readMorey}`}>
-                  {/* <butsinglePostston>read more</butsinglePostston> */}
-                  delete
-                  {/* <HiOutlineExternalLink /> */}
+              <div className="absolute top-4 font-medium gap-4 bg-slate-900o flex text-2xl ">
+                <button className="">
+                  <MdDelete />
                 </button>
-                <button className={`${feed.readMoreyy}`}>
-                  {/* <butsinglePostston>read more</butsinglePostston> */}
-                  edit
-                  {/* <HiOutlineExternalLink /> */}
+                <button>
+                  <MdModeEdit />
                 </button>
               </div>
             )}
@@ -46,7 +48,7 @@ function PostsCard({ postsData }) {
               {/* <button className={`${feed.tag}`}>{tags.tag2}</button>
               <button className={`${feed.tag}`}>{tags.tag3}</button> */}
             </div>
-            <div>{timeStamp.toDate().toLocaleString()} • 16m read time</div>
+            {/* <div>{timeStamp.toDate().toLocaleString()} • 16m read time</div> */}
 
             <div>
               <img src={img} alt="image" className={`${feed.img}`} />
